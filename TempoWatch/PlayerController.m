@@ -34,6 +34,10 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+// Music styles
+// rock, pop, country, metal, alternative, jazz, punk, classical, techno, dubstep
+
+
 // Return tempo string
 +(NSString*) getTempoStringForBPM:(NSUInteger)bpm {
     if (bpm <= 60) {

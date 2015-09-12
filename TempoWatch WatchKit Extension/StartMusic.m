@@ -10,6 +10,7 @@
 
 
 @interface StartMusic()
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceImage *image;
 
 @end
 
@@ -25,6 +26,8 @@
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
+    [self.image setImageNamed:@"heart"];
+    NSLog(@"Hit");
 }
 
 - (void)didDeactivate {

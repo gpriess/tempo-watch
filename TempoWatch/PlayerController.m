@@ -32,9 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[WCSession defaultSession] setDelegate:self];
-    [[WCSession defaultSession] activateSession];
     
+    // Requests access to health data on first run of the phone
     if(HKHealthStore.isHealthDataAvailable)
     {
         HKHealthStore *store = [[HKHealthStore alloc] init];
@@ -43,9 +42,16 @@
             NSLog(@"Hit");
         }];
     }
+    else
+    {
+        // Probably want to aler that this won't work without health data
+    }
+    
+    // Sets up WatchConnectivity to receive updates from the watch with the new heart rate
+    [[WCSession defaultSession] setDelegate:self];
+    [[WCSession defaultSession] activateSession];
     
     self.tempoLabel.text = @"n/a";
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 // Music styles
@@ -190,9 +196,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+// This is the callback from the watch that receives the heart rate
 - (void)session:(WCSession *)session didReceiveMessage:(nonnull NSDictionary<NSString *,id> *)message
 {
-    NSLog(@"%@",message);
+    NSNumber *currentBPM = message[@"rate"];
+    NSLog(@"Current heart rate is %@", currentBPM);
 }
 
 @end

@@ -7,12 +7,15 @@
 //
 
 #import "Config.h"
-#import "ViewController.h"
+#import "PlayerController.h"
 #import <Spotify/SPTDiskCache.h>
 #import <UIKit/UIKit.h>
 @import HealthKit;
 
-@interface ViewController () <SPTAudioStreamingDelegate>
+@interface PlayerController () <SPTAudioStreamingDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UILabel *tempoLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
@@ -23,7 +26,7 @@
 
 @end
 
-@implementation ViewController
+@implementation PlayerController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,7 +40,28 @@
         }];
     }
     
+    self.tempoLabel.text = @"n/a";
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+// Return tempo string
++(NSString*) getTempoStringForBPM:(NSUInteger)bpm {
+    if (bpm <= 60) {
+        return @"Largo";
+    }
+    else if (bpm <= 76) {
+        return @"Adagio";
+    }
+    else if (bpm <= 120) {
+        return @"Moderato";
+    }
+    else if (bpm <= 168) {
+        return @"Allegro";
+    }
+    else if (bpm <= 200) {
+        return @"Presto";
+    }
+    return @"Prestissimo";
 }
 
 

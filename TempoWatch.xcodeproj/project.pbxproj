@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		111724381BA3F3AC000D4F46 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 111724371BA3F3AC000D4F46 /* main.m */; };
 		1117243B1BA3F3AC000D4F46 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117243A1BA3F3AC000D4F46 /* AppDelegate.m */; };
-		1117243E1BA3F3AC000D4F46 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117243D1BA3F3AC000D4F46 /* ViewController.m */; };
+		1117243E1BA3F3AC000D4F46 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117243D1BA3F3AC000D4F46 /* PlayerController.m */; };
 		111724411BA3F3AC000D4F46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1117243F1BA3F3AC000D4F46 /* Main.storyboard */; };
 		111724431BA3F3AC000D4F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 111724421BA3F3AC000D4F46 /* Assets.xcassets */; };
 		111724461BA3F3AC000D4F46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 111724441BA3F3AC000D4F46 /* LaunchScreen.storyboard */; };
@@ -27,6 +27,7 @@
 		C208C9941BA40F9400C9C6DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */; };
 		C208C9961BA418F600C9C6DE /* images in Resources */ = {isa = PBXBuildFile; fileRef = C208C9951BA418F600C9C6DE /* images */; settings = {ASSET_TAGS = (); }; };
 		C208C9981BA419A000C9C6DE /* cage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C208C9971BA419A000C9C6DE /* cage.jpg */; };
+		C208C99A1BA4260900C9C6DE /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C208C9991BA4260900C9C6DE /* logo.jpg */; };
 		C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */; };
 		C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDD1BA4074F004804A4 /* Spotify.framework */; };
 		C2FB0EE11BA40A69004804A4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FB0EE01BA40A69004804A4 /* LoginController.m */; settings = {ASSET_TAGS = (); }; };
@@ -93,8 +94,8 @@
 		111724371BA3F3AC000D4F46 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		111724391BA3F3AC000D4F46 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1117243A1BA3F3AC000D4F46 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1117243C1BA3F3AC000D4F46 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1117243D1BA3F3AC000D4F46 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1117243C1BA3F3AC000D4F46 /* PlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
+		1117243D1BA3F3AC000D4F46 /* PlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 		111724401BA3F3AC000D4F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		111724421BA3F3AC000D4F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		111724451BA3F3AC000D4F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 		C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C208C9951BA418F600C9C6DE /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		C208C9971BA419A000C9C6DE /* cage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cage.jpg; path = images/cage.jpg; sourceTree = "<group>"; };
+		C208C9991BA4260900C9C6DE /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = images/logo.jpg; sourceTree = "<group>"; };
 		C2FB0ED81BA405A6004804A4 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		C2FB0ED91BA4060E004804A4 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../Downloads/ios-sdk-beta-10/Spotify.framework"; sourceTree = "<group>"; };
 		C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -171,6 +173,7 @@
 		1117242A1BA3F3AC000D4F46 = {
 			isa = PBXGroup;
 			children = (
+				C208C9991BA4260900C9C6DE /* logo.jpg */,
 				C208C9971BA419A000C9C6DE /* cage.jpg */,
 				C208C9951BA418F600C9C6DE /* images */,
 				117ED0F21BA42463007D492F /* HealthKit.framework */,
@@ -206,8 +209,8 @@
 				C2FB0ED81BA405A6004804A4 /* Config.h */,
 				111724391BA3F3AC000D4F46 /* AppDelegate.h */,
 				1117243A1BA3F3AC000D4F46 /* AppDelegate.m */,
-				1117243C1BA3F3AC000D4F46 /* ViewController.h */,
-				1117243D1BA3F3AC000D4F46 /* ViewController.m */,
+				1117243C1BA3F3AC000D4F46 /* PlayerController.h */,
+				1117243D1BA3F3AC000D4F46 /* PlayerController.m */,
 				C2FB0EDF1BA40A2D004804A4 /* LoginController.h */,
 				C2FB0EE01BA40A69004804A4 /* LoginController.m */,
 				1117243F1BA3F3AC000D4F46 /* Main.storyboard */,
@@ -431,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C208C9961BA418F600C9C6DE /* images in Resources */,
+				C208C99A1BA4260900C9C6DE /* logo.jpg in Resources */,
 				C208C9981BA419A000C9C6DE /* cage.jpg in Resources */,
 				111724461BA3F3AC000D4F46 /* LaunchScreen.storyboard in Resources */,
 				111724431BA3F3AC000D4F46 /* Assets.xcassets in Resources */,
@@ -476,7 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1117243E1BA3F3AC000D4F46 /* ViewController.m in Sources */,
+				1117243E1BA3F3AC000D4F46 /* PlayerController.m in Sources */,
 				C2FB0EE11BA40A69004804A4 /* LoginController.m in Sources */,
 				1117243B1BA3F3AC000D4F46 /* AppDelegate.m in Sources */,
 				111724381BA3F3AC000D4F46 /* main.m in Sources */,

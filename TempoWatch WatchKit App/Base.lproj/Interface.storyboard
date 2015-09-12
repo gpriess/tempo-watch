@@ -10,16 +10,12 @@
             <objects>
                 <controller hidesWhenLoading="NO" id="Bsi-sC-ZQ7" customClass="StartMusic">
                     <items>
-                        <button width="1" alignment="left" title="Start" id="Mnc-8y-m2O">
+                        <button width="114" height="113.5" alignment="center" verticalAlignment="center" backgroundImage="large-heart" id="RJ0-xa-K3L">
                             <connections>
-                                <segue destination="AgC-eL-Hgc" kind="push" id="KSy-3t-2D2"/>
+                                <segue destination="AgC-eL-Hgc" kind="push" id="Rji-1Q-E8S"/>
                             </connections>
                         </button>
-                        <imageView height="97" alignment="left" id="8bx-IL-vwZ"/>
                     </items>
-                    <connections>
-                        <outlet property="image" destination="8bx-IL-vwZ" id="bJZ-0a-RZ1"/>
-                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="168" y="387"/>
@@ -29,24 +25,41 @@
             <objects>
                 <controller title="End" id="AgC-eL-Hgc" customClass="PlayMusic">
                     <items>
-                        <group width="1" alignment="left" id="QMg-XW-zL5">
+                        <group width="136" height="151.5" alignment="left" layout="vertical" spacing="21" id="24D-sX-8eF">
                             <items>
-                                <button width="39" height="36.5" alignment="left" verticalAlignment="center" title="rewind" id="YOS-Wp-juJ"/>
-                                <button width="54" height="49.5" alignment="left" verticalAlignment="center" title="Play" id="5R2-q3-8oF"/>
-                                <button width="39" height="36.5" alignment="left" verticalAlignment="center" title="forward" id="vw3-yY-4Qi"/>
+                                <group width="1" height="22.5" alignment="right" id="kGR-bN-iGW">
+                                    <items>
+                                        <label width="40.5" height="29.5" alignment="right" text="90" textAlignment="right" id="JS2-GU-YSI"/>
+                                        <imageView width="23" height="28" alignment="right" image="small-heart" id="kDk-pW-zd0"/>
+                                    </items>
+                                </group>
+                                <group width="133" height="43.5" alignment="left" id="rU6-TJ-jcw">
+                                    <items>
+                                        <button width="30" height="30" alignment="left" verticalAlignment="center" backgroundImage="red-rewind" id="YOS-Wp-juJ">
+                                            <connections>
+                                                <action selector="setImage" destination="AgC-eL-Hgc" id="Yhs-Rb-iA6"/>
+                                            </connections>
+                                        </button>
+                                        <imageView width="17" alignment="left" hidden="YES" id="9Ii-9U-pcu"/>
+                                        <button width="35" height="35" alignment="center" verticalAlignment="center" backgroundImage="red-play.png" id="5R2-q3-8oF"/>
+                                        <button width="30" height="30" alignment="right" verticalAlignment="center" backgroundImage="red-forward.png" id="vw3-yY-4Qi"/>
+                                    </items>
+                                </group>
+                                <label alignment="center" text="Song Info" textAlignment="center" id="CY1-Dq-If9"/>
                             </items>
                         </group>
-                        <label alignment="left" text="Current Song playing" id="BUs-J2-Tnq"/>
-                        <imageView alignment="left" id="exL-Nl-rrD"/>
                     </items>
                     <menu key="menu" id="k2q-K5-UHO">
                         <items>
                             <menuItem title="Menu Itemkjadflk" icon="accept" id="64z-Ui-bGE"/>
                         </items>
                     </menu>
+                    <connections>
+                        <outlet property="backgroundGroup" destination="rU6-TJ-jcw" id="AcQ-RW-7uk"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="396" y="387"/>
+            <point key="canvasLocation" x="396" y="387.25"/>
         </scene>
     </scenes>
 </document>

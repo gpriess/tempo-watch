@@ -19,10 +19,10 @@
 		111724671BA3F3AC000D4F46 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 111724651BA3F3AC000D4F46 /* Interface.storyboard */; };
 		111724691BA3F3AC000D4F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 111724681BA3F3AC000D4F46 /* Assets.xcassets */; };
 		111724701BA3F3AD000D4F46 /* TempoWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1117246F1BA3F3AD000D4F46 /* TempoWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		111724761BA3F3AD000D4F46 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111724751BA3F3AD000D4F46 /* InterfaceController.m */; };
 		111724791BA3F3AD000D4F46 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */; };
 		1117247B1BA3F3AD000D4F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1117247A1BA3F3AD000D4F46 /* Assets.xcassets */; };
-		C208C9921BA40F4D00C9C6DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C208C9911BA40F4D00C9C6DE /* UIKit.framework */; };
+		117ED0EC1BA410FF007D492F /* PlayMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0E91BA410FF007D492F /* PlayMusic.m */; settings = {ASSET_TAGS = (); }; };
+		117ED0ED1BA410FF007D492F /* StartMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0EB1BA410FF007D492F /* StartMusic.m */; settings = {ASSET_TAGS = (); }; };
 		C208C9941BA40F9400C9C6DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */; };
 		C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */; };
 		C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDD1BA4074F004804A4 /* Spotify.framework */; };
@@ -107,13 +107,14 @@
 		111724681BA3F3AC000D4F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1117246A1BA3F3AC000D4F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1117246F1BA3F3AD000D4F46 /* TempoWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TempoWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		111724741BA3F3AD000D4F46 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
-		111724751BA3F3AD000D4F46 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
 		111724771BA3F3AD000D4F46 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
 		111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		1117247A1BA3F3AD000D4F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1117247C1BA3F3AD000D4F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C208C9911BA40F4D00C9C6DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		117ED0E81BA410FF007D492F /* PlayMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayMusic.h; sourceTree = "<group>"; };
+		117ED0E91BA410FF007D492F /* PlayMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMusic.m; sourceTree = "<group>"; };
+		117ED0EA1BA410FF007D492F /* StartMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMusic.h; sourceTree = "<group>"; };
+		117ED0EB1BA410FF007D492F /* StartMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMusic.m; sourceTree = "<group>"; };
 		C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C2FB0ED81BA405A6004804A4 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		C2FB0ED91BA4060E004804A4 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../Downloads/ios-sdk-beta-10/Spotify.framework"; sourceTree = "<group>"; };
@@ -129,7 +130,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C208C9941BA40F9400C9C6DE /* SystemConfiguration.framework in Frameworks */,
-				C208C9921BA40F4D00C9C6DE /* UIKit.framework in Frameworks */,
 				C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */,
 				C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */,
 			);
@@ -163,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */,
-				C208C9911BA40F4D00C9C6DE /* UIKit.framework */,
 				C2FB0EDD1BA4074F004804A4 /* Spotify.framework */,
 				C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */,
 				C2FB0ED91BA4060E004804A4 /* Spotify.framework */,
@@ -246,8 +245,10 @@
 		111724731BA3F3AD000D4F46 /* TempoWatch WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				111724741BA3F3AD000D4F46 /* InterfaceController.h */,
-				111724751BA3F3AD000D4F46 /* InterfaceController.m */,
+				117ED0E81BA410FF007D492F /* PlayMusic.h */,
+				117ED0E91BA410FF007D492F /* PlayMusic.m */,
+				117ED0EA1BA410FF007D492F /* StartMusic.h */,
+				117ED0EB1BA410FF007D492F /* StartMusic.m */,
 				111724771BA3F3AD000D4F46 /* ExtensionDelegate.h */,
 				111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */,
 				1117247A1BA3F3AD000D4F46 /* Assets.xcassets */,
@@ -475,7 +476,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				111724791BA3F3AD000D4F46 /* ExtensionDelegate.m in Sources */,
-				111724761BA3F3AD000D4F46 /* InterfaceController.m in Sources */,
+				117ED0ED1BA410FF007D492F /* StartMusic.m in Sources */,
+				117ED0EC1BA410FF007D492F /* PlayMusic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

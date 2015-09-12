@@ -31,7 +31,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-Dc-Tfp">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HeY-Xf-KJk">
                                         <rect key="frame" x="0.0" y="25" width="300" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -42,45 +42,58 @@
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="qOH-66-Om7"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5X4-82-4GM">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5X4-82-4GM">
                                         <rect key="frame" x="0.0" y="325" width="300" height="128"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BGC-eF-6bi">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGC-eF-6bi">
                                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueV-Si-vzt">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRk-cA-5db">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="128"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aV-I2-4x2">
-                                                <rect key="frame" x="300" y="0.0" width="0.0" height="128"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="XV3-qj-2BT"/>
+                                                    <constraint firstAttribute="height" constant="128" id="6Dd-y6-9da"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0oP-SF-GmT">
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVO-Er-gFS" userLabel="Song Title">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="128"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0oP-SF-GmT">
                                                 <rect key="frame" x="300" y="0.0" width="0.0" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="0oP-SF-GmT" firstAttribute="width" secondItem="BGC-eF-6bi" secondAttribute="width" id="2KO-nG-5sn"/>
-                                            <constraint firstItem="nRk-cA-5db" firstAttribute="width" secondItem="5X4-82-4GM" secondAttribute="width" id="wP6-AD-6Eo"/>
+                                            <constraint firstItem="kVO-Er-gFS" firstAttribute="width" secondItem="5X4-82-4GM" secondAttribute="width" id="N8c-B1-jbf"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYh-aP-KR7">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYh-aP-KR7">
                                         <rect key="frame" x="0.0" y="453" width="300" height="127"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Um-lF-qkT">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="127"/>
+                                                <state key="normal" title="&lt;"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUk-Xw-zbb">
+                                                <rect key="frame" x="100" y="0.0" width="100" height="127"/>
+                                                <state key="normal" title="Play/Pause"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzp-Cf-VmW">
+                                                <rect key="frame" x="200" y="0.0" width="100" height="127"/>
+                                                <state key="normal" title="&gt;"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="uUk-Xw-zbb" firstAttribute="width" secondItem="fzp-Cf-VmW" secondAttribute="width" id="NGd-vC-PLZ"/>
+                                            <constraint firstItem="2Um-lF-qkT" firstAttribute="width" secondItem="uUk-Xw-zbb" secondAttribute="width" id="eyL-l8-TFC"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ElF-re-7Aq" firstAttribute="centerX" secondItem="OHw-S0-Ww3" secondAttribute="centerX" id="2Ts-uy-bIx"/>
                                     <constraint firstItem="ElF-re-7Aq" firstAttribute="top" secondItem="OHw-S0-Ww3" secondAttribute="top" constant="25" id="TAb-y7-4oV"/>
+                                    <constraint firstItem="HeY-Xf-KJk" firstAttribute="top" secondItem="13E-w2-vvj" secondAttribute="top" id="mQT-QH-bfN"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -100,6 +113,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1708" y="-205"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bKc-wA-iwJ">
+            <objects>
+                <viewController id="AOK-a6-aUB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ih3-7q-mVo"/>
+                        <viewControllerLayoutGuide type="bottom" id="bxh-s0-FTP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2XC-Yf-0DP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TLC-hD-fPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

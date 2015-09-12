@@ -23,7 +23,7 @@
         <!--End-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="End" id="AgC-eL-Hgc" customClass="StartMusic">
+                <controller title="End" id="AgC-eL-Hgc" customClass="PlayMusic">
                     <items>
                         <group width="1" alignment="left" id="QMg-XW-zL5">
                             <items>

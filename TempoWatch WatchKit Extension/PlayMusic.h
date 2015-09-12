@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <WatchKit/WatchKit.h>
+@import HealthKit;
 
-@interface PlayMusic : NSObject
+@interface PlayMusic : WKInterfaceController <HKWorkoutSessionDelegate>
 
 @end

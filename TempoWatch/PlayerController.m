@@ -10,6 +10,7 @@
 #import "PlayerController.h"
 #import <Spotify/SPTDiskCache.h>
 #import <UIKit/UIKit.h>
+@import HealthKit;
 
 @interface PlayerController () <SPTAudioStreamingDelegate>
 
@@ -29,6 +30,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if(HKHealthStore.isHealthDataAvailable)
+    {
+        HKHealthStore *store = [[HKHealthStore alloc] init];
+        HKQuantityType *heartReate = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+        [store requestAuthorizationToShareTypes:nil readTypes:[NSSet setWithObjects:heartReate, nil] completion:^(BOOL success, NSError * _Nullable error) {
+            NSLog(@"Hit");
+        }];
+    }
     
     self.tempoLabel.text = @"n/a";
     // Do any additional setup after loading the view, typically from a nib.

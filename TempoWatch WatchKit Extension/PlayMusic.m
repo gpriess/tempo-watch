@@ -10,6 +10,7 @@
 @import WatchConnectivity;
 
 @interface PlayMusic () <WCSessionDelegate>
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *backgroundGroup;
 @property (strong, nonatomic) HKHealthStore *store;
 @property (strong, nonatomic) HKWorkoutSession *monitorSession;
 @property (strong, nonatomic) HKAnchoredObjectQuery *heartRateQuery;
@@ -73,6 +74,9 @@
     
     [self.store executeQuery:self.heartRateQuery];
     
+}
+- (IBAction)setImage {
+    [self.backgroundGroup setBackgroundImageNamed:@"dark-rewind"];
 }
 
 - (void)workoutSession:(HKWorkoutSession *)workoutSession didFailWithError:(NSError *)error

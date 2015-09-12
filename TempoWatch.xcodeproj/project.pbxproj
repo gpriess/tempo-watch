@@ -22,6 +22,9 @@
 		111724761BA3F3AD000D4F46 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111724751BA3F3AD000D4F46 /* InterfaceController.m */; };
 		111724791BA3F3AD000D4F46 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */; };
 		1117247B1BA3F3AD000D4F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1117247A1BA3F3AD000D4F46 /* Assets.xcassets */; };
+		C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */; };
+		C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDD1BA4074F004804A4 /* Spotify.framework */; };
+		C2FB0EE11BA40A69004804A4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FB0EE01BA40A69004804A4 /* LoginController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +111,12 @@
 		111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		1117247A1BA3F3AD000D4F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1117247C1BA3F3AD000D4F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2FB0ED81BA405A6004804A4 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		C2FB0ED91BA4060E004804A4 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../Downloads/ios-sdk-beta-10/Spotify.framework"; sourceTree = "<group>"; };
+		C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C2FB0EDD1BA4074F004804A4 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
+		C2FB0EDF1BA40A2D004804A4 /* LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		C2FB0EE01BA40A69004804A4 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */,
+				C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +156,9 @@
 		1117242A1BA3F3AC000D4F46 = {
 			isa = PBXGroup;
 			children = (
+				C2FB0EDD1BA4074F004804A4 /* Spotify.framework */,
+				C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */,
+				C2FB0ED91BA4060E004804A4 /* Spotify.framework */,
 				111724351BA3F3AC000D4F46 /* TempoWatch */,
 				1117244F1BA3F3AC000D4F46 /* TempoWatchTests */,
 				1117245A1BA3F3AC000D4F46 /* TempoWatchUITests */,
@@ -169,10 +183,13 @@
 		111724351BA3F3AC000D4F46 /* TempoWatch */ = {
 			isa = PBXGroup;
 			children = (
+				C2FB0ED81BA405A6004804A4 /* Config.h */,
 				111724391BA3F3AC000D4F46 /* AppDelegate.h */,
 				1117243A1BA3F3AC000D4F46 /* AppDelegate.m */,
 				1117243C1BA3F3AC000D4F46 /* ViewController.h */,
 				1117243D1BA3F3AC000D4F46 /* ViewController.m */,
+				C2FB0EDF1BA40A2D004804A4 /* LoginController.h */,
+				C2FB0EE01BA40A69004804A4 /* LoginController.m */,
 				1117243F1BA3F3AC000D4F46 /* Main.storyboard */,
 				111724421BA3F3AC000D4F46 /* Assets.xcassets */,
 				111724441BA3F3AC000D4F46 /* LaunchScreen.storyboard */,
@@ -423,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1117243E1BA3F3AC000D4F46 /* ViewController.m in Sources */,
+				C2FB0EE11BA40A69004804A4 /* LoginController.m in Sources */,
 				1117243B1BA3F3AC000D4F46 /* AppDelegate.m in Sources */,
 				111724381BA3F3AC000D4F46 /* main.m in Sources */,
 			);
@@ -650,6 +668,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TempoWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch;
@@ -661,6 +683,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TempoWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch;
@@ -735,6 +761,7 @@
 				111724811BA3F3AD000D4F46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		111724831BA3F3AD000D4F46 /* Build configuration list for PBXNativeTarget "TempoWatch WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -743,6 +770,7 @@
 				111724851BA3F3AD000D4F46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		111724871BA3F3AD000D4F46 /* Build configuration list for PBXNativeTarget "TempoWatch" */ = {
 			isa = XCConfigurationList;
@@ -751,6 +779,7 @@
 				111724891BA3F3AD000D4F46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1117248A1BA3F3AD000D4F46 /* Build configuration list for PBXNativeTarget "TempoWatchTests" */ = {
 			isa = XCConfigurationList;
@@ -759,6 +788,7 @@
 				1117248C1BA3F3AD000D4F46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1117248D1BA3F3AD000D4F46 /* Build configuration list for PBXNativeTarget "TempoWatchUITests" */ = {
 			isa = XCConfigurationList;
@@ -767,6 +797,7 @@
 				1117248F1BA3F3AD000D4F46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

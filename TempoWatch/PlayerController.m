@@ -79,6 +79,23 @@
 }
 
 
+// Image blur function courtesy of Stack Overflow :D
+- (UIImage*)blurImage:(UIImage*)image withBottomInset:(CGFloat)inset blurRadius:(CGFloat)radius{
+    
+    image =  [UIImage imageWithCGImage: CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, image.size.height - inset, image.size.width,inset))];
+    
+    CIImage *ciImage = [CIImage imageWithCGImage:image.CGImage];
+    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [filter setValue:ciImage forKey:kCIInputImageKey];
+    [filter setValue:@(radius) forKey:kCIInputRadiusKey];
+    
+    CIImage *outputCIImage = filter.outputImage;
+    CIContext *context = [CIContext contextWithOptions:nil];
+    
+    return [UIImage imageWithCGImage: [context createCGImage:outputCIImage fromRect:ciImage.extent]];
+    
+}
+
 -(void)updateUI {
     SPTAuth *auth = [SPTAuth defaultInstance];
     

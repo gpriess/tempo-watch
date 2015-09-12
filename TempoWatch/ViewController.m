@@ -9,6 +9,7 @@
 #import "Config.h"
 #import "ViewController.h"
 #import <Spotify/SPTDiskCache.h>
+#import <UIKit/UIKit.h>
 
 @interface ViewController () <SPTAudioStreamingDelegate>
 
@@ -34,7 +35,7 @@
         return;
     }
     
-    [self.spinner startAnimating];
+//    [self.spinner startAnimating];
     
     [SPTTrack trackWithURI:self.player.currentTrackURI
                    session:auth.session
@@ -42,7 +43,7 @@
 
                       
                       SPTPartialArtist *artist = [track.artists objectAtIndex:0];
-                      self.artistLabel.text = artist.name;
+//                      self.artistLabel.text = artist.name;
                       
                       NSURL *imageURL = track.album.largestCover.imageURL;
                       if (imageURL == nil) {

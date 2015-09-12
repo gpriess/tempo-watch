@@ -10,10 +10,11 @@
 #define LoginController_h
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface LoginController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end
 

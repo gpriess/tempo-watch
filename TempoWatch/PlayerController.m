@@ -29,6 +29,22 @@
 
 @implementation PlayerController
 
+
+// Image blur function courtesy of Stack Overflow :D
+- (UIImage*)blurImage:(UIImage*)image blurRadius:(CGFloat)radius{
+    
+    CIImage *ciImage = [CIImage imageWithCGImage:image.CGImage];
+    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [filter setValue:ciImage forKey:kCIInputImageKey];
+    [filter setValue:@(radius) forKey:kCIInputRadiusKey];
+    
+    CIImage *outputCIImage = filter.outputImage;
+    CIContext *context = [CIContext contextWithOptions:nil];
+    
+    return [UIImage imageWithCGImage: [context createCGImage:outputCIImage fromRect:ciImage.extent]];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -44,7 +60,7 @@
     }
     else
     {
-        // Probably want to aler that this won't work without health data
+        // Probably want to alert that this won't work without health data
     }
     
     // Sets up WatchConnectivity to receive updates from the watch with the new heart rate
@@ -52,6 +68,11 @@
     [[WCSession defaultSession] activateSession];
     
     self.tempoLabel.text = @"n/a";
+    UIImage *cage = [UIImage imageNamed:@"cage"];
+    self.coverView.image = [self blurImage:cage blurRadius:20.0];
+    
+    [[WCSession defaultSession] sendMessage:@{@"image":cage} replyHandler:nil errorHandler:nil];
+    
 }
 
 // Music styles
@@ -76,22 +97,6 @@
         return @"Presto";
     }
     return @"Prestissimo";
-}
-
-
-// Image blur function courtesy of Stack Overflow :D
-- (UIImage*)blurImage:(UIImage*)image blurRadius:(CGFloat)radius{
-    
-    CIImage *ciImage = [CIImage imageWithCGImage:image.CGImage];
-    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
-    [filter setValue:ciImage forKey:kCIInputImageKey];
-    [filter setValue:@(radius) forKey:kCIInputRadiusKey];
-    
-    CIImage *outputCIImage = filter.outputImage;
-    CIContext *context = [CIContext contextWithOptions:nil];
-    
-    return [UIImage imageWithCGImage: [context createCGImage:outputCIImage fromRect:ciImage.extent]];
-    
 }
 
 -(void)updateUI {

@@ -107,6 +107,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="coverView" destination="ElF-re-7Aq" id="bnA-BC-ucY"/>
                         <outlet property="tempoLabel" destination="13E-w2-vvj" id="Xax-n6-yu6"/>
                     </connections>
                 </viewController>

@@ -24,7 +24,7 @@
 		117ED0EC1BA410FF007D492F /* PlayMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0E91BA410FF007D492F /* PlayMusic.m */; settings = {ASSET_TAGS = (); }; };
 		117ED0ED1BA410FF007D492F /* StartMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0EB1BA410FF007D492F /* StartMusic.m */; settings = {ASSET_TAGS = (); }; };
 		117ED0F31BA42463007D492F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117ED0F21BA42463007D492F /* HealthKit.framework */; };
-		117ED0FA1BA4BDF1007D492F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1117247A1BA3F3AD000D4F46 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
+		A4659E701BA4E0FE00C10359 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */; };
 		C208C9941BA40F9400C9C6DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */; };
 		C208C9961BA418F600C9C6DE /* images in Resources */ = {isa = PBXBuildFile; fileRef = C208C9951BA418F600C9C6DE /* images */; settings = {ASSET_TAGS = (); }; };
 		C208C9981BA419A000C9C6DE /* cage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C208C9971BA419A000C9C6DE /* cage.jpg */; };
@@ -122,6 +122,7 @@
 		117ED0F01BA42240007D492F /* TempoWatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TempoWatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		117ED0F11BA42463007D492F /* TempoWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TempoWatch.entitlements; sourceTree = "<group>"; };
 		117ED0F21BA42463007D492F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C208C9951BA418F600C9C6DE /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		C208C9971BA419A000C9C6DE /* cage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cage.jpg; path = images/cage.jpg; sourceTree = "<group>"; };
@@ -163,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4659E701BA4E0FE00C10359 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +174,8 @@
 		1117242A1BA3F3AC000D4F46 = {
 			isa = PBXGroup;
 			children = (
+				A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */,
+				C208C9991BA4260900C9C6DE /* logo.jpg */,
 				C208C9971BA419A000C9C6DE /* cage.jpg */,
 				C208C9951BA418F600C9C6DE /* images */,
 				117ED0F21BA42463007D492F /* HealthKit.framework */,
@@ -392,6 +396,7 @@
 					};
 					1117245F1BA3F3AC000D4F46 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = NUZSU8DM6S;
 					};
 					1117246E1BA3F3AD000D4F46 = {
 						CreatedOnToolsVersion = 7.0;
@@ -686,6 +691,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				IBSC_MODULE = TempoWatch_WatchKit_Extension;
 				INFOPLIST_FILE = "TempoWatch WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch.watchkitapp;
@@ -701,6 +707,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				IBSC_MODULE = TempoWatch_WatchKit_Extension;
 				INFOPLIST_FILE = "TempoWatch WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch.watchkitapp;
@@ -716,9 +723,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TempoWatch/TempoWatch.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -736,9 +744,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TempoWatch/TempoWatch.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

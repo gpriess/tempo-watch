@@ -78,6 +78,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUk-Xw-zbb">
                                                 <rect key="frame" x="100" y="0.0" width="100" height="127"/>
                                                 <state key="normal" title="Play/Pause"/>
+                                                <connections>
+                                                    <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="seN-f4-jvp"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzp-Cf-VmW">
                                                 <rect key="frame" x="200" y="0.0" width="100" height="127"/>

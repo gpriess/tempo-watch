@@ -13,8 +13,9 @@
 @import HealthKit;
 @import WatchConnectivity;
 
-@interface PlayerController () <SPTAudioStreamingDelegate, WCSessionDelegate>
+@interface PlayerController () <SPTAudioStreamingDelegate, WCSessionDelegate, SPTAuthViewDelegate>
 
+@property (atomic, readwrite) SPTAuthViewController *authViewController;
 
 @property (weak, nonatomic) IBOutlet UILabel *tempoLabel;
 
@@ -28,7 +29,6 @@
 @end
 
 @implementation PlayerController
-
 
 // Image blur function courtesy of Stack Overflow :D
 - (UIImage*)blurImage:(UIImage*)image blurRadius:(CGFloat)radius{
@@ -47,7 +47,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     // Requests access to health data on first run of the phone
     if(HKHealthStore.isHealthDataAvailable)
@@ -72,11 +71,36 @@
     self.coverView.image = [self blurImage:cage blurRadius:20.0];
     
     [[WCSession defaultSession] sendMessage:@{@"image":cage} replyHandler:nil errorHandler:nil];
-    
 }
 
 // Music styles
 // rock, pop, country, metal, alternative, jazz, punk, classical, techno, dubstep
+
+
+// It worked if this code is hit
+- (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didLoginWithSession:(SPTSession *)session {
+    //    self.statusLabel.text = @"";
+//    [self showPlayer];
+}
+
+- (void)openLoginPage {
+    //    self.statusLabel.text = @"Logging in...";
+    
+    self.authViewController = [SPTAuthViewController authenticationViewController];
+    self.authViewController.delegate = self;
+    self.authViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.authViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    self.definesPresentationContext = YES;
+
+    [self presentViewController:self.authViewController animated:NO completion:nil];
+}
+
+
+
+
+
 
 
 // Return tempo string
@@ -223,4 +247,55 @@
     NSLog(@"Current heart rate is %@", currentBPM);
 }
 
+
+
+
+- (void)renewTokenAndShowPlayer {
+    //    self.statusLabel.text = @"Refreshing token...";
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    
+    [auth renewSession:auth.session callback:^(NSError *error, SPTSession *session) {
+        auth.session = session;
+        
+        if (error) {
+            //            self.statusLabel.text = @"Refreshing token failed.";
+            NSLog(@"*** Error renewing session: %@", error);
+            return;
+        }
+        
+//        [self showPlayer];
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    
+    // Check if we have a token at all
+    if (auth.session == nil) {
+        //        self.statusLabel.text = @"";
+        return;
+    }
+    // Check if it's still valid
+//    if ([auth.session isValid] && self.firstLoad) {
+        // It's still valid, show the player.
+//        [self showPlayer];
+//        return;
+    // Oh noes, the token has expired, if we have a token refresh service set up, we'll call tat one.
+    //    self.statusLabel.text = @"Token expired.";
+    if (auth.hasTokenRefreshService) {
+        [self renewTokenAndShowPlayer];
+        return;
+    }
+    
+    // Else, just show login dialog
+}
+
+
+    
+    
+- (IBAction)loginClicked:(id)sender {
+    [self openLoginPage];
+}
+    
+    
 @end

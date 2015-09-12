@@ -22,7 +22,7 @@
 // Don't forget to add your callback URL's prefix to the URL Types section in the target's Info pane!
 
 // Your client ID
-#define kClientId "e6695c6d22214e0f832006889566df9c"
+#define kClientId "81793028e8794519abf6e57df12c88fc"
 
 // Your applications callback URL
 #define kCallbackURL "spotifyiossdkexample://"

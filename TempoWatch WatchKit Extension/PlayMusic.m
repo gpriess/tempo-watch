@@ -1,4 +1,4 @@
-//
+	//
 //  PlayMusic.m
 //  TempoWatch
 //
@@ -34,16 +34,13 @@
     self.monitorSession.delegate = self;
     
     self.store = [[HKHealthStore alloc] init];
-//    HKAuthorizationStatus *status = [self.store authorizationStatusForType:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate]];
-    
-    [self.store requestAuthorizationToShareTypes:nil readTypes:[NSSet setWithArray:@[[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate]]] completion:^(BOOL success, NSError * _Nullable error) {
-        NSLog(@"Was successful %i", success);
-    }];
     [self.store startWorkoutSession:self.monitorSession];
 }
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
+    [self.store stopQuery:self.heartRateQuery];
+    [self.store endWorkoutSession:self.monitorSession];
     [super didDeactivate];
 }
 
@@ -51,7 +48,7 @@
 
 - (void)workoutSession:(HKWorkoutSession *)workoutSession didChangeToState:(HKWorkoutSessionState)toState fromState:(HKWorkoutSessionState)fromState date:(NSDate *)date
 {
-    NSLog(@"New state: %ld", (long)toState);
+    // Sets up query to fetch heart rates
     self.heartRateQuery = [[HKAnchoredObjectQuery alloc]
                            initWithType:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate]
                            predicate:nil
@@ -60,11 +57,15 @@
                            resultsHandler:^(HKAnchoredObjectQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable sampleObjects, NSArray<HKDeletedObject *> * _Nullable deletedObjects, HKQueryAnchor * _Nullable newAnchor, NSError * _Nullable error)
     {
     }];
-    [self.heartRateQuery setUpdateHandler:^(HKAnchoredObjectQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable sampleObjects, NSArray<HKDeletedObject *> * _Nullable deletedObjects, HKQueryAnchor * _Nullable newAnchor, NSError * _Nullable error) {
-        NSLog(@"New sample %@", sampleObjects);
+    
+    // Every time a new heart rate is received this handler is called
+    [self.heartRateQuery setUpdateHandler:^(HKAnchoredObjectQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable sampleObjects, NSArray<HKDeletedObject *> * _Nullable deletedObjects, HKQueryAnchor * _Nullable newAnchor, NSError * _Nullable error)
+    {
         HKUnit *bpmUnit = [HKUnit unitFromString:@"count/min"];
         HKQuantitySample *mostRecentHeartQuantity = sampleObjects.lastObject;
         NSNumber *mostRecentRate = [NSNumber numberWithDouble:[mostRecentHeartQuantity.quantity doubleValueForUnit:bpmUnit]];
+        
+        // After getting an NSNumber that is BPM, we use WatchConnectivity to send that to the phone
         [[WCSession defaultSession] sendMessage:@{@"rate":mostRecentRate} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
             NSLog(@"HIT ERROR %@",error);
         }];

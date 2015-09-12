@@ -15,7 +15,11 @@
                                 <segue destination="AgC-eL-Hgc" kind="push" id="KSy-3t-2D2"/>
                             </connections>
                         </button>
+                        <imageView height="97" alignment="left" id="8bx-IL-vwZ"/>
                     </items>
+                    <connections>
+                        <outlet property="image" destination="8bx-IL-vwZ" id="bJZ-0a-RZ1"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="168" y="387"/>

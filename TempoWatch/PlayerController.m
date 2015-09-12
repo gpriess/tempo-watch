@@ -11,8 +11,9 @@
 #import <Spotify/SPTDiskCache.h>
 #import <UIKit/UIKit.h>
 @import HealthKit;
+@import WatchConnectivity;
 
-@interface PlayerController () <SPTAudioStreamingDelegate>
+@interface PlayerController () <SPTAudioStreamingDelegate, WCSessionDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UILabel *tempoLabel;
@@ -30,6 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[WCSession defaultSession] setDelegate:self];
+    [[WCSession defaultSession] activateSession];
     
     if(HKHealthStore.isHealthDataAvailable)
     {
@@ -180,6 +184,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)session:(WCSession *)session didReceiveMessage:(nonnull NSDictionary<NSString *,id> *)message
+{
+    NSLog(@"%@",message);
 }
 
 @end

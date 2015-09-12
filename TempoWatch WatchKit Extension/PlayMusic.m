@@ -7,8 +7,9 @@
 //
 
 #import "PlayMusic.h"
+@import WatchConnectivity;
 
-@interface PlayMusic ()
+@interface PlayMusic () <WCSessionDelegate>
 @property (strong, nonatomic) HKHealthStore *store;
 @property (strong, nonatomic) HKWorkoutSession *monitorSession;
 @property (strong, nonatomic) HKAnchoredObjectQuery *heartRateQuery;
@@ -25,6 +26,9 @@
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
+    
+    [[WCSession defaultSession] setDelegate:self];
+    [[WCSession defaultSession] activateSession];
     
     self.monitorSession = [[HKWorkoutSession alloc] initWithActivityType:HKWorkoutActivityTypeOther locationType:HKWorkoutSessionLocationTypeIndoor];
     self.monitorSession.delegate = self;
@@ -58,6 +62,12 @@
     }];
     [self.heartRateQuery setUpdateHandler:^(HKAnchoredObjectQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable sampleObjects, NSArray<HKDeletedObject *> * _Nullable deletedObjects, HKQueryAnchor * _Nullable newAnchor, NSError * _Nullable error) {
         NSLog(@"New sample %@", sampleObjects);
+        HKUnit *bpmUnit = [HKUnit unitFromString:@"count/min"];
+        HKQuantitySample *mostRecentHeartQuantity = sampleObjects.lastObject;
+        NSNumber *mostRecentRate = [NSNumber numberWithDouble:[mostRecentHeartQuantity.quantity doubleValueForUnit:bpmUnit]];
+        [[WCSession defaultSession] sendMessage:@{@"rate":mostRecentRate} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+            NSLog(@"HIT ERROR %@",error);
+        }];
     }];
     
     [self.store executeQuery:self.heartRateQuery];

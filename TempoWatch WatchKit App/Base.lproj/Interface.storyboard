@@ -1,26 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bsi-sC-ZQ7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
-        <scene sceneID="aou-V4-d1y">
+        <!--Start Music-->
+        <scene sceneID="17Y-Zx-5GM">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller hidesWhenLoading="NO" id="Bsi-sC-ZQ7" customClass="StartMusic">
                     <items>
-                        <button width="1" alignment="left" title="Works" id="2Gk-Gq-g6W">
+                        <button width="1" alignment="left" title="Start" id="Mnc-8y-m2O">
                             <connections>
-                                <action selector="buttonHit" destination="AgC-eL-Hgc" id="TaH-os-eTp"/>
+                                <segue destination="AgC-eL-Hgc" kind="push" id="KSy-3t-2D2"/>
                             </connections>
                         </button>
                     </items>
-                    <connections>
-                        <outlet property="button" destination="2Gk-Gq-g6W" id="zDh-kH-enp"/>
-                    </connections>
                 </controller>
             </objects>
+            <point key="canvasLocation" x="168" y="387"/>
+        </scene>
+        <!--End-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="End" id="AgC-eL-Hgc" customClass="StartMusic">
+                    <items>
+                        <group width="1" alignment="left" id="QMg-XW-zL5">
+                            <items>
+                                <button width="39" height="36.5" alignment="left" verticalAlignment="center" title="rewind" id="YOS-Wp-juJ"/>
+                                <button width="54" height="49.5" alignment="left" verticalAlignment="center" title="Play" id="5R2-q3-8oF"/>
+                                <button width="39" height="36.5" alignment="left" verticalAlignment="center" title="forward" id="vw3-yY-4Qi"/>
+                            </items>
+                        </group>
+                        <label alignment="left" text="Current Song playing" id="BUs-J2-Tnq"/>
+                        <imageView alignment="left" id="exL-Nl-rrD"/>
+                    </items>
+                    <menu key="menu" id="k2q-K5-UHO">
+                        <items>
+                            <menuItem title="Menu Itemkjadflk" icon="accept" id="64z-Ui-bGE"/>
+                        </items>
+                    </menu>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="396" y="387"/>
         </scene>
     </scenes>
 </document>

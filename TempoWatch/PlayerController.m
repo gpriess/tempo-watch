@@ -80,9 +80,7 @@
 
 
 // Image blur function courtesy of Stack Overflow :D
-- (UIImage*)blurImage:(UIImage*)image withBottomInset:(CGFloat)inset blurRadius:(CGFloat)radius{
-    
-    image =  [UIImage imageWithCGImage: CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, image.size.height - inset, image.size.width,inset))];
+- (UIImage*)blurImage:(UIImage*)image blurRadius:(CGFloat)radius{
     
     CIImage *ciImage = [CIImage imageWithCGImage:image.CGImage];
     CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];

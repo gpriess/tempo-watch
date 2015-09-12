@@ -291,7 +291,9 @@
 }
 
 
-    
+- (void)authenticationViewControllerDidCancelLogin:(SPTAuthViewController *)authenticationViewController {
+    //    self.statusLabel.text = @"Login cancelled.";
+}
     
 - (IBAction)loginClicked:(id)sender {
     [self openLoginPage];

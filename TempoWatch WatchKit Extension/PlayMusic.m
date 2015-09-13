@@ -1,4 +1,4 @@
-	//
+//
 //  PlayMusic.m
 //  TempoWatch
 //
@@ -46,6 +46,14 @@
     
     self.store = [[HKHealthStore alloc] init];
     [self.store startWorkoutSession:self.monitorSession];
+    
+    if(HKHealthStore.isHealthDataAvailable)
+    {
+        HKQuantityType *heartReate = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+        [self.store requestAuthorizationToShareTypes:nil readTypes:[NSSet setWithObjects:heartReate, nil] completion:^(BOOL success, NSError * _Nullable error) {
+            NSLog(@"Hit");
+        }];
+    }
 }
 
 - (void)didDeactivate {
@@ -67,6 +75,7 @@
                            limit:HKObjectQueryNoLimit
                            resultsHandler:^(HKAnchoredObjectQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable sampleObjects, NSArray<HKDeletedObject *> * _Nullable deletedObjects, HKQueryAnchor * _Nullable newAnchor, NSError * _Nullable error)
     {
+        NSLog(@"Hit");
     }];
     
     // Every time a new heart rate is received this handler is called

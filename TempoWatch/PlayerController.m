@@ -132,56 +132,6 @@
     return @"Prestissimo";
 }
 
--(void)updateUI {
-    SPTAuth *auth = [SPTAuth defaultInstance];
-    
-    if (self.player.currentTrackURI == nil) {
-
-        return;
-    }
-    
-//    [self.spinner startAnimating];
-    
-    [SPTTrack trackWithURI:self.player.currentTrackURI
-                   session:auth.session
-                  callback:^(NSError *error, SPTTrack *track) {
-
-                      
-                      SPTPartialArtist *artist = [track.artists objectAtIndex:0];
-                      self.artistLabel.text = artist.name;
-                      
-                      NSURL *imageURL = track.album.largestCover.imageURL;
-                      if (imageURL == nil) {
-                          NSLog(@"Album %@ doesn't have any images!", track.album);
-
-                          return;
-                      }
-                      
-                      // Pop over to a background queue to load the image over the network.
-                      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                          NSError *error = nil;
-                          UIImage *image = nil;
-                          NSData *imageData = [NSData dataWithContentsOfURL:imageURL options:0 error:&error];
-                          
-                          if (imageData != nil) {
-                              image = [UIImage imageWithData:imageData];
-                          }
-                          
-                          
-                          // …and back to the main queue to display the image.
-                          dispatch_async(dispatch_get_main_queue(), ^{
-
-                              if (image == nil) {
-                                  NSLog(@"Couldn't load cover image with error: %@", error);
-                                  return;
-                              }
-                          });
-
-                      });
-                      
-                  }];
-}
-
 
 -(void)handleNewSession {
     SPTAuth *auth = [SPTAuth defaultInstance];
@@ -199,9 +149,6 @@
             return;
         }
         
-        [self updateUI];
-        
-        
         
         NSURL *trackURI = [NSURL URLWithString:@"spotify:track:58s6EuEYJdlb0kO7awm3Vp"];
         [self.player playURIs:@[ trackURI ] fromIndex:0 callback:^(NSError *error) {
@@ -209,8 +156,53 @@
                 NSLog(@"*** Starting playback got error: %@", error);
                 return;
             }
+            
+            [SPTTrack trackWithURI:trackURI
+                           session:auth.session
+                          callback:^(NSError *error, SPTTrack *track) {
+                              
+                              
+                              SPTPartialArtist *artist = [track.artists objectAtIndex:0];
+                              self.titleLabel.text = [NSString stringWithFormat:@"%@%@%@", artist.name, @" - ",
+                                                     track.album.name];
+                              
+                              
+                              NSURL *imageURL = track.album.largestCover.imageURL;
+                              if (imageURL == nil) {
+                                  NSLog(@"Album %@ doesn't have any images!", track.album);
+                                  
+                                  return;
+                              }
+                              
+                              // Pop over to a background queue to load the image over the network.
+                              dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                                  NSError *error = nil;
+                                  UIImage *image = nil;
+                                  NSData *imageData = [NSData dataWithContentsOfURL:imageURL options:0 error:&error];
+                                  
+                                  if (imageData != nil) {
+                                      image = [UIImage imageWithData:imageData];
+                                  }
+                                  
+                                  
+                                  // …and back to the main queue to display the image.
+                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                      if (image == nil) {
+                                          NSLog(@"Couldn't load cover image with error: %@", error);
+                                          return;
+                                      } else {
+                                          self.coverView.image = image;
+                                      }
+                                  });
+                                  
+                              });
+                              
+                          }];
+            
+            
         }];
     }];
+    
 }
 
 
@@ -231,7 +223,6 @@
 
 - (void) audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeToTrack:(NSDictionary *)trackMetadata {
     NSLog(@"track changed = %@", [trackMetadata valueForKey:SPTAudioStreamingMetadataTrackURI]);
-    [self updateUI];
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying {

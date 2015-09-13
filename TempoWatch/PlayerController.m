@@ -77,10 +77,19 @@
 // rock, pop, country, metal, alternative, jazz, punk, classical, techno, dubstep
 
 
+-(void)showPlayer {
+//    self.firstLoad = NO;
+//    self.statusLabel.text = @"Logged in.";
+//    [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
+    [self handleNewSession];
+}
+
+
+
 // It worked if this code is hit
 - (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didLoginWithSession:(SPTSession *)session {
     //    self.statusLabel.text = @"";
-//    [self showPlayer];
+   [self showPlayer];
 }
 
 - (void)openLoginPage {
@@ -139,7 +148,7 @@
 
                       
                       SPTPartialArtist *artist = [track.artists objectAtIndex:0];
-//                      self.artistLabel.text = artist.name;
+                      self.artistLabel.text = artist.name;
                       
                       NSURL *imageURL = track.album.largestCover.imageURL;
                       if (imageURL == nil) {
@@ -263,7 +272,7 @@
             return;
         }
         
-//        [self showPlayer];
+        [self showPlayer];
     }];
 }
 
@@ -290,6 +299,18 @@
     // Else, just show login dialog
 }
 
+
+-(IBAction)rewind:(id)sender {
+    [self.player skipPrevious:nil];
+}
+
+-(IBAction)playPause:(id)sender {
+    [self.player setIsPlaying:!self.player.isPlaying callback:nil];
+}
+
+-(IBAction)fastForward:(id)sender {
+    [self.player skipNext:nil];
+}
 
 - (void)authenticationViewControllerDidCancelLogin:(SPTAuthViewController *)authenticationViewController {
     //    self.statusLabel.text = @"Login cancelled.";

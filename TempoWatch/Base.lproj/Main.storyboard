@@ -81,14 +81,23 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Um-lF-qkT">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                 <state key="normal" title="&lt;"/>
+                                                <connections>
+                                                    <action selector="rewind:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pL2-tW-7Yv"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUk-Xw-zbb">
                                                 <rect key="frame" x="100" y="0.0" width="100" height="30"/>
                                                 <state key="normal" title="Play/Pause"/>
+                                                <connections>
+                                                    <action selector="playPause:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9XA-x1-T6v"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzp-Cf-VmW">
                                                 <rect key="frame" x="200" y="0.0" width="100" height="30"/>
                                                 <state key="normal" title="&gt;"/>
+                                                <connections>
+                                                    <action selector="fastForward:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yLk-25-Z3k"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -116,6 +125,7 @@
                     <connections>
                         <outlet property="coverView" destination="ElF-re-7Aq" id="bnA-BC-ucY"/>
                         <outlet property="tempoLabel" destination="13E-w2-vvj" id="Xax-n6-yu6"/>
+                        <outlet property="titleLabel" destination="kVO-Er-gFS" id="c1X-lX-bEZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

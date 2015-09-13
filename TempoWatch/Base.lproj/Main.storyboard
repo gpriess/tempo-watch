@@ -27,7 +27,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L6E-Wh-5CP">
                                 <rect key="frame" x="100" y="35" width="400" height="515"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cage" translatesAutoresizingMaskIntoConstraints="NO" id="u8T-wL-6wh">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u8T-wL-6wh">
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="u8T-wL-6wh" secondAttribute="height" multiplier="1:1" id="58v-Oo-fkK"/>
@@ -36,31 +36,55 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXP-7b-TBc">
                                         <rect key="frame" x="0.0" y="400" width="400" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <variation key="heightClass=compact" ambiguous="YES">
+                                            <rect key="frame" x="0.0" y="600" width="600" height="100"/>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="400" width="400" height="100"/>
+                                        </variation>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sC6-Zz-dF4">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sC6-Zz-dF4">
                                         <rect key="frame" x="0.0" y="400" width="400" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="0rE-Xo-3Nn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.90588235294117647" green="0.15294117647058825" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact" ambiguous="YES">
+                                            <rect key="frame" x="0.0" y="700" width="600" height="30"/>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="500" width="400" height="30"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="0.0" y="394" width="394" height="262"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyc-ZG-AYT">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyc-ZG-AYT">
                                         <rect key="frame" x="0.0" y="430" width="400" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="coj-Pf-IUC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <color key="textColor" red="0.98879319429397583" green="0.39545696973800659" blue="0.47266268730163574" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact" ambiguous="YES">
+                                            <rect key="frame" x="0.0" y="730" width="600" height="25"/>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="530" width="400" height="25"/>
+                                        </variation>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xf-Hd-A9O">
                                         <rect key="frame" x="0.0" y="455" width="400" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <variation key="heightClass=compact" ambiguous="YES">
+                                            <rect key="frame" x="0.0" y="755" width="600" height="50"/>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="555" width="400" height="50"/>
+                                        </variation>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="t06-20-xA2">
                                         <rect key="frame" x="0.0" y="455" width="400" height="60"/>
@@ -68,6 +92,9 @@
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bjc-Um-GZH">
                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="60"/>
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <variation key="heightClass=compact" ambiguous="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="153" height="60"/>
+                                                </variation>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCN-CU-iT4">
                                                 <rect key="frame" x="89" y="0.0" width="50" height="60"/>
@@ -75,6 +102,9 @@
                                                     <constraint firstAttribute="width" constant="50" id="cvK-C0-nrA"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="red-rewind"/>
+                                                <variation key="heightClass=compact" ambiguous="YES">
+                                                    <rect key="frame" x="189" y="0.0" width="50" height="60"/>
+                                                </variation>
                                                 <connections>
                                                     <action selector="rewind:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ujj-cb-KlY"/>
                                                 </connections>
@@ -85,6 +115,9 @@
                                                     <constraint firstAttribute="width" constant="50" id="gvL-md-uec"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="red-play"/>
+                                                <variation key="heightClass=compact" ambiguous="YES">
+                                                    <rect key="frame" x="275" y="0.0" width="50" height="60"/>
+                                                </variation>
                                                 <connections>
                                                     <action selector="playPause:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QXO-DX-U8Q"/>
                                                 </connections>
@@ -102,6 +135,9 @@
                                                         <exclude reference="qks-Mz-Z3R"/>
                                                     </mask>
                                                 </variation>
+                                                <variation key="heightClass=compact" ambiguous="YES">
+                                                    <rect key="frame" x="361" y="0.0" width="50" height="60"/>
+                                                </variation>
                                                 <connections>
                                                     <action selector="fastForward:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1o8-bq-D5q"/>
                                                 </connections>
@@ -112,12 +148,21 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" id="qqY-O9-Zjk"/>
                                                 </constraints>
+                                                <variation key="heightClass=compact" ambiguous="YES">
+                                                    <rect key="frame" x="447" y="0.0" width="153" height="60"/>
+                                                </variation>
                                             </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Oar-Xq-U1Y"/>
                                             <constraint firstItem="dCN-CU-iT4" firstAttribute="width" secondItem="hp7-RG-6PX" secondAttribute="width" id="hv2-7S-uDZ"/>
                                         </constraints>
+                                        <variation key="heightClass=compact" ambiguous="YES">
+                                            <rect key="frame" x="0.0" y="805" width="600" height="60"/>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="605" width="400" height="60"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="0.0" y="656" width="394" height="50"/>
                                         </variation>
@@ -126,6 +171,12 @@
                                 <constraints>
                                     <constraint firstItem="qXP-7b-TBc" firstAttribute="height" secondItem="6Xf-Hd-A9O" secondAttribute="height" multiplier="2" id="pPg-7q-1Vc"/>
                                 </constraints>
+                                <variation key="heightClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="35" width="600" height="865"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="35" width="400" height="665"/>
+                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="153" y="84" width="394" height="706"/>
                                 </variation>
@@ -144,7 +195,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.023529411760000001" green="0.50196078430000002" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96628289473684215" green="0.85786137228975878" blue="0.80471536068206717" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="eX6-wU-bab" firstAttribute="top" secondItem="t06-20-xA2" secondAttribute="top" constant="-20" id="85b-n4-2Q1"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L6E-Wh-5CP" secondAttribute="trailing" id="9SV-Yg-1ms"/>
@@ -178,16 +229,16 @@
                                 <exclude reference="eX6-wU-bab"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Xib-8D-Sps"/>
-                                <exclude reference="cGj-1S-u13"/>
-                                <exclude reference="iQi-Ms-lQu"/>
-                                <exclude reference="pjq-u6-Jh0"/>
                                 <exclude reference="Ky4-he-jjU"/>
                                 <exclude reference="NdG-L4-tGr"/>
                                 <exclude reference="aLD-Fd-ihf"/>
                                 <exclude reference="h3x-F6-TG0"/>
                                 <exclude reference="pYc-db-M8L"/>
                                 <exclude reference="ABx-Rh-4j5"/>
+                                <exclude reference="Xib-8D-Sps"/>
+                                <exclude reference="cGj-1S-u13"/>
+                                <exclude reference="iQi-Ms-lQu"/>
+                                <exclude reference="pjq-u6-Jh0"/>
                             </mask>
                         </variation>
                     </view>
@@ -215,8 +266,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sfM-z2-mkP">
-                                <rect key="frame" x="55" y="213.5" width="490" height="173"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sfM-z2-mkP">
+                                <rect key="frame" x="40" y="213" width="520" height="173"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="173" id="BUf-HR-CbH"/>
                                 </constraints>
@@ -226,12 +277,9 @@ We only use your heart rate to pick appropriate music tempos and don't save it a
                                 <color key="textColor" red="0.023529411764705882" green="0.50196078431372548" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="88" y="226" width="224" height="209"/>
-                                </variation>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="o5Q-vz-6wh">
-                                <rect key="frame" x="233" y="28" width="134" height="167.5"/>
+                                <rect key="frame" x="230" y="28" width="140" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="o5Q-vz-6wh" secondAttribute="height" multiplier="4:5" id="mIy-2x-Cxk"/>
                                 </constraints>
@@ -250,9 +298,9 @@ We only use your heart rate to pick appropriate music tempos and don't save it a
                             <constraint firstItem="o5Q-vz-6wh" firstAttribute="centerX" secondItem="2XC-Yf-0DP" secondAttribute="centerX" id="937-Wb-feP"/>
                             <constraint firstItem="bxh-s0-FTP" firstAttribute="top" secondItem="s8u-po-iqf" secondAttribute="bottom" constant="65" id="TlI-YC-pYv"/>
                             <constraint firstItem="sfM-z2-mkP" firstAttribute="centerY" secondItem="2XC-Yf-0DP" secondAttribute="centerY" id="c3D-wi-coh"/>
-                            <constraint firstItem="sfM-z2-mkP" firstAttribute="top" secondItem="o5Q-vz-6wh" secondAttribute="bottom" constant="18" id="cBp-IC-pfS"/>
-                            <constraint firstItem="sfM-z2-mkP" firstAttribute="leading" secondItem="2XC-Yf-0DP" secondAttribute="leadingMargin" constant="35" id="fGz-zi-r7v"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sfM-z2-mkP" secondAttribute="trailing" constant="35" id="fad-3J-aLR"/>
+                            <constraint firstItem="sfM-z2-mkP" firstAttribute="top" secondItem="o5Q-vz-6wh" secondAttribute="bottom" constant="10" id="cBp-IC-pfS"/>
+                            <constraint firstItem="sfM-z2-mkP" firstAttribute="leading" secondItem="2XC-Yf-0DP" secondAttribute="leadingMargin" constant="20" id="fGz-zi-r7v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sfM-z2-mkP" secondAttribute="trailing" constant="20" id="fad-3J-aLR"/>
                             <constraint firstItem="sfM-z2-mkP" firstAttribute="centerX" secondItem="2XC-Yf-0DP" secondAttribute="centerX" id="nNs-Dq-Y5B"/>
                             <constraint firstItem="s8u-po-iqf" firstAttribute="centerX" secondItem="2XC-Yf-0DP" secondAttribute="centerX" id="wzn-gs-FTt"/>
                         </constraints>
@@ -271,7 +319,6 @@ We only use your heart rate to pick appropriate music tempos and don't save it a
     </scenes>
     <resources>
         <image name="Logo" width="180" height="180"/>
-        <image name="cage" width="350" height="350"/>
         <image name="red-forward" width="100" height="100"/>
         <image name="red-play" width="100" height="100"/>
         <image name="red-rewind" width="100" height="100"/>

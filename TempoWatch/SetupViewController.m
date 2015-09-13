@@ -76,6 +76,7 @@
     }
     else if(self.state == 2)
     {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"SetupCompleted"];
         [self performSegueWithIdentifier:@"SetupComplete" sender:self];
     }
 }

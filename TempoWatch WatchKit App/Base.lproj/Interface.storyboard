@@ -61,8 +61,8 @@
                                 </group>
                                 <group width="1" height="39" alignment="center" layout="vertical" spacing="0.0" id="7UT-76-7c8">
                                     <items>
-                                        <label alignment="center" text="Song Title" textAlignment="center" id="CY1-Dq-If9"/>
-                                        <label alignment="center" text="Artist Name" textAlignment="center" id="Z9m-qc-biC">
+                                        <label alignment="center" textAlignment="center" id="CY1-Dq-If9"/>
+                                        <label alignment="center" textAlignment="center" id="Z9m-qc-biC">
                                             <color key="textColor" red="0.77548926767676774" green="0.77548926767676774" blue="0.77548926767676774" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </items>

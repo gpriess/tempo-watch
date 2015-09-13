@@ -10,16 +10,26 @@
 @import WatchConnectivity;
 
 @interface PlayMusic () <WCSessionDelegate>
+
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *backgroundGroup;
 @property (strong, nonatomic) HKHealthStore *store;
 @property (strong, nonatomic) HKWorkoutSession *monitorSession;
 @property (strong, nonatomic) HKAnchoredObjectQuery *heartRateQuery;
+
+// UI Elements
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *currentHeartRate;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceImage *heartDisplay;
+
+@property BOOL hasHeartRate;
+
 @end
 
 @implementation PlayMusic
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
+    
+    self.hasHeartRate = NO;
     
     // Configure interface objects here.
 }
@@ -60,11 +70,30 @@
     }];
     
     // Every time a new heart rate is received this handler is called
+    __block PlayMusic *blockSafeSelf = self;
     [self.heartRateQuery setUpdateHandler:^(HKAnchoredObjectQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable sampleObjects, NSArray<HKDeletedObject *> * _Nullable deletedObjects, HKQueryAnchor * _Nullable newAnchor, NSError * _Nullable error)
     {
         HKUnit *bpmUnit = [HKUnit unitFromString:@"count/min"];
         HKQuantitySample *mostRecentHeartQuantity = sampleObjects.lastObject;
         NSNumber *mostRecentRate = [NSNumber numberWithDouble:[mostRecentHeartQuantity.quantity doubleValueForUnit:bpmUnit]];
+        
+        if(self.hasHeartRate == NO)
+        {
+            blockSafeSelf.hasHeartRate = YES;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [blockSafeSelf animateWithDuration:0.5 animations:^{
+                    blockSafeSelf.heartDisplay.alpha = 1;
+                    blockSafeSelf.currentHeartRate.alpha = 1;
+                }];
+                blockSafeSelf.currentHeartRate.text = [NSString stringWithFormat:@"%i", mostRecentRate.intValue];
+            });
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                blockSafeSelf.currentHeartRate.text = [NSString stringWithFormat:@"%i", mostRecentRate.intValue];
+            });
+        }
         
         // After getting an NSNumber that is BPM, we use WatchConnectivity to send that to the phone
         [[WCSession defaultSession] sendMessage:@{@"rate":mostRecentRate} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {

@@ -21,14 +21,13 @@
 		111724791BA3F3AD000D4F46 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */; };
 		1117247B1BA3F3AD000D4F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1117247A1BA3F3AD000D4F46 /* Assets.xcassets */; };
 		115E532A1BA4F77800E4104A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 115E53291BA4F77800E4104A /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		115E532F1BA522B400E4104A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 115E532E1BA522B400E4104A /* HealthKit.framework */; };
 		117ED0EC1BA410FF007D492F /* PlayMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0E91BA410FF007D492F /* PlayMusic.m */; settings = {ASSET_TAGS = (); }; };
 		117ED0ED1BA410FF007D492F /* StartMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0EB1BA410FF007D492F /* StartMusic.m */; settings = {ASSET_TAGS = (); }; };
-		A4659E701BA4E0FE00C10359 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */; };
 		C208C9941BA40F9400C9C6DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */; };
 		C208C9961BA418F600C9C6DE /* images in Resources */ = {isa = PBXBuildFile; fileRef = C208C9951BA418F600C9C6DE /* images */; settings = {ASSET_TAGS = (); }; };
 		C208C9981BA419A000C9C6DE /* cage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C208C9971BA419A000C9C6DE /* cage.jpg */; };
 		C2B0761D1BA51FCC00CC8AB8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B0761C1BA51FCC00CC8AB8 /* HealthKit.framework */; };
+		C2B0761F1BA52D8B00CC8AB8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B0761E1BA52D8B00CC8AB8 /* HealthKit.framework */; };
 		C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */; };
 		C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDD1BA4074F004804A4 /* Spotify.framework */; };
 		C2FB0EE11BA40A69004804A4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FB0EE01BA40A69004804A4 /* LoginController.m */; settings = {ASSET_TAGS = (); }; };
@@ -116,7 +115,6 @@
 		1117247A1BA3F3AD000D4F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1117247C1BA3F3AD000D4F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		115E53291BA4F77800E4104A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		115E532E1BA522B400E4104A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		117ED0E81BA410FF007D492F /* PlayMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayMusic.h; sourceTree = "<group>"; };
 		117ED0E91BA410FF007D492F /* PlayMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMusic.m; sourceTree = "<group>"; };
 		117ED0EA1BA410FF007D492F /* StartMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMusic.h; sourceTree = "<group>"; };
@@ -128,6 +126,7 @@
 		C208C9951BA418F600C9C6DE /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		C208C9971BA419A000C9C6DE /* cage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cage.jpg; path = images/cage.jpg; sourceTree = "<group>"; };
 		C2B0761C1BA51FCC00CC8AB8 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		C2B0761E1BA52D8B00CC8AB8 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		C2FB0ED81BA405A6004804A4 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		C2FB0ED91BA4060E004804A4 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../Downloads/ios-sdk-beta-10/Spotify.framework"; sourceTree = "<group>"; };
 		C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -142,7 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C208C9941BA40F9400C9C6DE /* SystemConfiguration.framework in Frameworks */,
-				115E532F1BA522B400E4104A /* HealthKit.framework in Frameworks */,
+				C2B0761F1BA52D8B00CC8AB8 /* HealthKit.framework in Frameworks */,
 				C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */,
 				C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */,
 			);
@@ -176,7 +175,7 @@
 		1117242A1BA3F3AC000D4F46 = {
 			isa = PBXGroup;
 			children = (
-				115E532E1BA522B400E4104A /* HealthKit.framework */,
+				C2B0761E1BA52D8B00CC8AB8 /* HealthKit.framework */,
 				A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */,
 				C208C9971BA419A000C9C6DE /* cage.jpg */,
 				C208C9951BA418F600C9C6DE /* images */,
@@ -401,7 +400,7 @@
 					};
 					1117246E1BA3F3AD000D4F46 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 9WKPZL7H2V;
+						DevelopmentTeam = NUZSU8DM6S;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -738,7 +737,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "46693c38-a3db-4e4d-84ae-d828d3303183";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -760,7 +759,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "46693c38-a3db-4e4d-84ae-d828d3303183";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

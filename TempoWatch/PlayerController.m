@@ -201,14 +201,16 @@
         
         [self updateUI];
         
-        NSURLRequest *newRequest = [SPTTrack createRequestForTrack:[NSURL URLWithString:@"spotify:track:3L7BcXHCG8uT92viO6Tikl"] withAccessToken:auth.session.accessToken market:nil error:nil];
         
         
-        
-        
-
+        NSURL *trackURI = [NSURL URLWithString:@"spotify:track:58s6EuEYJdlb0kO7awm3Vp"];
+        [self.player playURIs:@[ trackURI ] fromIndex:0 callback:^(NSError *error) {
+            if (error != nil) {
+                NSLog(@"*** Starting playback got error: %@", error);
+                return;
+            }
+        }];
     }];
-
 }
 
 

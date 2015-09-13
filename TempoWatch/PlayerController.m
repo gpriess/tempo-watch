@@ -69,19 +69,21 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
     {
         // Probably want to alert that this won't work without health data
     }
-    
+    __block PlayerController *safeSelf = self;
     self.liason = [[WatchLiason alloc] init];
     [self.liason setReversePressed:^{
         // Executes when reverse is pressed
+        [safeSelf.player skipPrevious:nil];
     }];
     [self.liason setForwardPressed:^{
         // Executes when forward is pressed
+        [safeSelf.player skipNext:nil];
     }];
     [self.liason setPlayPausePressed:^{
         // Executes when play or pause is pressed
+        [safeSelf.player setIsPlaying:!safeSelf.player.isPlaying callback:nil];
     }];
     
-    __block PlayerController *safeSelf = self;
     [self.liason setHeartRateUpdate:^(NSNumber *currentBPM) {
         dispatch_async(dispatch_get_main_queue(), ^{
             safeSelf.heartRateLabel.text = [NSString stringWithFormat:@"%i",currentBPM.intValue];

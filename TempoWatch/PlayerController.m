@@ -201,21 +201,14 @@
         
         [self updateUI];
         
-        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
-                                                                             accessToken:auth.session.accessToken
-                                                                                   error:nil];
+        NSURLRequest *newRequest = [SPTTrack createRequestForTrack:[NSURL URLWithString:@"spotify:track:3L7BcXHCG8uT92viO6Tikl"] withAccessToken:auth.session.accessToken market:nil error:nil];
         
-        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
-            if (error != nil) {
-                NSLog(@"*** Failed to get playlist %@", error);
-                return;
-            }
-            
-            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
-            
-            [self.player playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
-        }];
+        
+        
+        
+
     }];
+
 }
 
 

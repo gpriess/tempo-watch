@@ -25,7 +25,7 @@
 #define kClientId "81793028e8794519abf6e57df12c88fc"
 
 // Your applications callback URL
-#define kCallbackURL "spotifyiossdkexample://"
+#define kCallbackURL "tempo://callback"
 
 // The URL to your token swap endpoint
 // If you don't provide a token swap service url the login will use implicit grant tokens, which means that your user will need to sign in again every time the token expires.

@@ -175,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */,
-				C208C9991BA4260900C9C6DE /* logo.jpg */,
 				C208C9971BA419A000C9C6DE /* cage.jpg */,
 				C208C9951BA418F600C9C6DE /* images */,
 				117ED0F21BA42463007D492F /* HealthKit.framework */,
@@ -463,7 +462,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				111724691BA3F3AC000D4F46 /* Assets.xcassets in Resources */,
-				117ED0FA1BA4BDF1007D492F /* Assets.xcassets in Resources */,
 				111724671BA3F3AC000D4F46 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,6 +731,7 @@
 				);
 				INFOPLIST_FILE = TempoWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -754,6 +753,7 @@
 				);
 				INFOPLIST_FILE = TempoWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

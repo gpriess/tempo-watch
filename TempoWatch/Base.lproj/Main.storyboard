@@ -247,6 +247,7 @@
                         <outlet property="coverView" destination="u8T-wL-6wh" id="Rvt-Ui-Os6"/>
                         <outlet property="heartImage" destination="psD-wv-p5x" id="ZmB-9T-guI"/>
                         <outlet property="heartRateLabel" destination="9Vw-wg-uuf" id="lDE-vM-xG5"/>
+                        <outlet property="playButton" destination="O0a-Ar-hNn" id="1wG-m0-F9p"/>
                         <outlet property="titleLabel" destination="sC6-Zz-dF4" id="c4r-xo-oL7"/>
                     </connections>
                 </viewController>

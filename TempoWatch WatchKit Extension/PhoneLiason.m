@@ -61,8 +61,9 @@
     NSString *title = message[@"title"];
     NSString *artist = message[@"artist"];
     UIImage *albumArt = [UIImage imageWithData:message[@"art"]];
+    NSNumber *isPlaying = message[@"playing"];
     
-    self.addedMetadata(title,artist,albumArt);
+    self.addedMetadata(title,artist,albumArt,isPlaying);
 }
 
 

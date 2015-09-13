@@ -13,6 +13,7 @@
 
 - (instancetype) init;
 
+- (void) sendIsPlaying:(BOOL)isPlaying;
 - (void) sendMetadataTitle:(NSString *)title andArtist:(NSString *)artist andArt:(UIImage *)art;
 
 @property (strong, nonatomic) void (^playPausePressed)();

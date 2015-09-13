@@ -25,6 +25,7 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @property (strong, atomic) WatchLiason *liason;
 
@@ -69,7 +70,9 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
     }];
     [self.liason setPlayPausePressed:^{
         // Executes when play or pause is pressed
-        [safeSelf.player setIsPlaying:!safeSelf.player.isPlaying callback:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [safeSelf playPause:safeSelf.playButton];
+        });
     }];
     
     [self.liason setSendUpdate:^{
@@ -205,7 +208,7 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
                               }
                               
                               NSString *artistName = [[track.artists[0] decodedJSONObject] objectForKey:@"name"];
-                              [self.liason sendMetadataTitle:track.name andArtist:artistName andArt:[self blurImage:image blurRadius:20]];
+                              [self.liason sendMetadataTitle:track.name andArtist:artistName andArt:[self blurImage:image blurRadius:20] ];
                               
                           });
                       });
@@ -376,10 +379,12 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
     if([self.player isPlaying])
     {
         [sender setImage:[UIImage imageNamed:@"red-play"] forState:UIControlStateNormal];
+        [self.liason sendIsPlaying:NO];
     }
     else
     {
         [sender setImage:[UIImage imageNamed:@"red-pause"] forState:UIControlStateNormal];
+        [self.liason sendIsPlaying:YES];
     }
     [self.player setIsPlaying:!self.player.isPlaying callback:nil];
 }

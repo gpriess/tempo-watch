@@ -27,9 +27,6 @@
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *backgroundGroup;
 @property (unsafe_unretained) IBOutlet WKInterfaceButton *playPauseButton;
 
-@property BOOL pauseOn;
-
-
 @property BOOL hasHeartRate;
 
 @end
@@ -50,11 +47,14 @@
 
     self.liason = [[PhoneLiason alloc] init];
     __block PlayMusic *safeSelf = self;
-    [self.liason setAddedMetadata:^(NSString *title, NSString *artist, UIImage *art) {
+    [self.liason setAddedMetadata:^(NSString *title, NSString *artist, UIImage *art, NSNumber *isPlaying) {
         NSLog(@"New data");
-        [safeSelf.songTitle setText:title];
-        [safeSelf.artistName setText:artist];
-        [safeSelf.backgroundGroup setBackgroundImage:art];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(title) [safeSelf.songTitle setText:title];
+            if(artist)[safeSelf.artistName setText:artist];
+            if(art)[safeSelf.backgroundGroup setBackgroundImage:art];
+            if(isPlaying)[safeSelf setPlaying:isPlaying.boolValue];
+        });
     }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -140,16 +140,21 @@
 - (IBAction)rewind {
     [self.liason pressBackward];
 }
-- (IBAction)playPause {
-    [self.liason pressPlayPause];
-    if (self.pauseOn) {
-        self.pauseOn = false;
+
+- (void) setPlaying:(BOOL)playing
+{
+    if(playing)
+    {
         [self.playPauseButton setBackgroundImageNamed:@"red-pause"];
-    } else {
-        self.pauseOn = true;
+    }
+    else
+    {
         [self.playPauseButton setBackgroundImageNamed:@"red-play"];
     }
-    
+}
+
+- (IBAction)playPause {
+    [self.liason pressPlayPause];
 }
 - (IBAction)forward {
     [self.liason pressForward];

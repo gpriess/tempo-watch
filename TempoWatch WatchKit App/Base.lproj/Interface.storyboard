@@ -81,6 +81,7 @@
                         <outlet property="backgroundGroup" destination="24D-sX-8eF" id="U5k-me-ls0"/>
                         <outlet property="currentHeartRate" destination="JS2-GU-YSI" id="rta-er-Yu8"/>
                         <outlet property="heartDisplay" destination="kDk-pW-zd0" id="7i1-wM-6Bp"/>
+                        <outlet property="playPauseButton" destination="5R2-q3-8oF" id="KzB-hV-qZp"/>
                         <outlet property="songTitle" destination="CY1-Dq-If9" id="S1b-nR-QK7"/>
                     </connections>
                 </controller>

@@ -26,10 +26,19 @@
     return self;
 }
 
-- (void) sendMetadataTitle:(NSString *)title andArtist:(NSString *)artist andArt:(UIImage *)art
+- (void) sendIsPlaying:(BOOL)isPlaying
 {
+    NSDictionary *message = @{@"playing":[NSNumber numberWithBool:isPlaying]};
+    [[WCSession defaultSession] sendMessage:message replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
+        NSLog(@"Success");
+    } errorHandler:^(NSError * _Nonnull error)
+     {
+         NSLog(@"Error sending metadata");
+     }];
+}
 
-    
+- (void) sendMetadataTitle:(NSString *)title andArtist:(NSString *)artist andArt:(UIImage *)art;
+{
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(150, 150), NO, art.scale);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -57,14 +66,9 @@
     
     UIGraphicsEndImageContext();
     
-    
-    
-    
-
-    
     NSDictionary *message = @{@"title":title,
                               @"artist":artist,
-                              @"art":UIImageJPEGRepresentation(filteredImage, 1)};
+                              @"art":UIImagePNGRepresentation(filteredImage)};
     
     [[WCSession defaultSession] sendMessage:message replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
         NSLog(@"Success");

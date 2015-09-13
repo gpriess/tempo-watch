@@ -12,7 +12,7 @@
 
 @interface PhoneLiason : NSObject <WCSessionDelegate>
 
-@property (strong, nonatomic) void (^addedMetadata)(NSString* title, NSString *artist, UIImage *art);
+@property (strong, nonatomic) void (^addedMetadata)(NSString* title, NSString *artist, UIImage *art, NSNumber *isPlaying);
 
 - (instancetype) init;
 

@@ -92,6 +92,10 @@
     {
         self.reversePressed();
     }
+    if(message[@"update"])
+    {
+        self.sendUpdate();
+    }
 }
 
 @end

@@ -49,6 +49,13 @@
     }];
 }
 
+- (void) sendUpdateRequest
+{
+    [[WCSession defaultSession] sendMessage:@{@"update":@YES} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+        NSLog(@"Error sending update request");
+    }];
+}
+
 - (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message
 {
     NSString *title = message[@"title"];
@@ -57,5 +64,6 @@
     
     self.addedMetadata(title,artist,albumArt);
 }
+
 
 @end

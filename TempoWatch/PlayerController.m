@@ -72,6 +72,10 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
         [safeSelf.player setIsPlaying:!safeSelf.player.isPlaying callback:nil];
     }];
     
+    [self.liason setSendUpdate:^{
+        [safeSelf.liason sendMetadataTitle:safeSelf.titleLabel.text andArtist:safeSelf.artistLabel.text andArt:[safeSelf blurImage:safeSelf.coverView.image blurRadius:20]];
+    }];
+    
     [self.liason setHeartRateUpdate:^(NSNumber *currentBPM) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(self.heartRateLabel.alpha == 0)
@@ -171,7 +175,7 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
 //                      self.albumLabel.text = track.album.name;
                       
                       SPTPartialArtist *artist = [track.artists objectAtIndex:0];
-//                      self.titleLabel.text = artist.name;
+                      self.artistLabel.text = artist.name;
                       
                       NSURL *imageURL = track.album.largestCover.imageURL;
                       if (imageURL == nil) {
@@ -369,7 +373,14 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
 }
 
 -(IBAction)playPause:(UIButton *)sender {
-    
+    if([self.player isPlaying])
+    {
+        [sender setImage:[UIImage imageNamed:@"red-play"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [sender setImage:[UIImage imageNamed:@"red-pause"] forState:UIControlStateNormal];
+    }
     [self.player setIsPlaying:!self.player.isPlaying callback:nil];
 }
 

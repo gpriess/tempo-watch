@@ -18,6 +18,7 @@
 @property (strong, nonatomic) void (^playPausePressed)();
 @property (strong, nonatomic) void (^forwardPressed)();
 @property (strong, nonatomic) void (^reversePressed)();
+@property (strong, nonatomic) void (^sendUpdate)();
 @property (strong, nonatomic) void (^heartRateUpdate)(NSNumber *bpm);
 
 @end

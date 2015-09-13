@@ -20,5 +20,6 @@
 - (void) pressBackward;
 - (void) pressPlayPause;
 - (void) sendHeartRate:(NSNumber *)bpm;
+- (void) sendUpdateRequest;
 
 @end

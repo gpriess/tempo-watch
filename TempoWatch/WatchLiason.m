@@ -30,18 +30,18 @@
 {
 
     
-    UIGraphicsBeginImageContextWithOptions(art.size, NO, art.scale);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(150, 150), NO, art.scale);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGRect area = CGRectMake(0, 0, art.size.width, art.size.height);
+    CGRect area = CGRectMake(0, 0, 150, 150);
     
     CGContextScaleCTM(context, 1, -1);
-    CGContextTranslateCTM(context, 0, -area.size.height);
+    CGContextTranslateCTM(context, 0, -150);
     
     CGContextSaveGState(context);
     CGContextClipToMask(context, area, art.CGImage);
     
-    UIColor *mycolor = [UIColor colorWithRed:24/255.0f green:89/255.0f blue:36/255.0f alpha:0.9];
+    UIColor *mycolor = [UIColor colorWithRed:24/255.0f green:24/255.0f blue:24/255.0f alpha:0.50];
     
     [mycolor set];
     

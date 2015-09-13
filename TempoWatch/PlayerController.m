@@ -99,7 +99,7 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
         if(abs(oldestHR-mostRecentHR) > 10)
         {
             // Update song list with mostRecentHR
-            [safeSelf updatePlaylistWithMinTempo:MAX(MIN(oldestHR, mostRecentHR),60) maxTempo:MAX(MAX(oldestHR, mostRecentHR), 70) andDancibility:@0.5];
+            [safeSelf updatePlaylistWithMinTempo:MAX(MIN(oldestHR, mostRecentHR),60) maxTempo:MAX(MAX(oldestHR, mostRecentHR), 70) andDancibility:@(MIN(mostRecentHR/200,0.85))];
         }
     }];
     
@@ -290,7 +290,6 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
 
 -(void)updatePlaylistWithMinTempo:(NSUInteger)min maxTempo:(NSUInteger)max andDancibility:(NSNumber*)dancibility
 {
-    
     
     NSString *urlString = [NSString stringWithFormat:kBaseURL,min,max,dancibility.doubleValue];
     NSURL *bigList = [NSURL URLWithString:urlString];

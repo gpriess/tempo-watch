@@ -14,7 +14,7 @@
 @import HealthKit;
 @import WatchConnectivity;
 
-const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?api_key=OVKZFPDQEXGKAD634&min_tempo=%i&max_tempo=%i&min_danceability=%f&sort=song_hotttnesss-desc&results=20&bucket=id:spotify&bucket=tracks&limit=true";
+const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?api_key=OVKZFPDQEXGKAD634&min_tempo=%i&max_tempo=%i&min_danceability=%f&sort=song_hotttnesss-desc&results=25&bucket=id:spotify&bucket=tracks&limit=true";
 
 @interface PlayerController () <SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, WCSessionDelegate, SPTAuthViewDelegate>
 
@@ -307,6 +307,11 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
          [songArray enumerateObjectsUsingBlock:^(NSDictionary *_Nonnull song, NSUInteger idx, BOOL * _Nonnull stop) {
              [prettySongs addObject:[NSURL URLWithString:song[@"tracks"][0][@"foreign_id"]]];
          }];
+         
+         for (int x = 0; x < [prettySongs count]; x++) {
+             int randInt = (arc4random() % ([prettySongs count] - x)) + x;
+             [prettySongs exchangeObjectAtIndex:x withObjectAtIndex:randInt];
+         }
          
          [self.player playURIs:prettySongs fromIndex:0 callback:^(NSError *error) {
              if (error != nil) {

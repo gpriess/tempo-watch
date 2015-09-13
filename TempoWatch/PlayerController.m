@@ -77,10 +77,19 @@
 // rock, pop, country, metal, alternative, jazz, punk, classical, techno, dubstep
 
 
+-(void)showPlayer {
+//    self.firstLoad = NO;
+//    self.statusLabel.text = @"Logged in.";
+//    [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
+    [self handleNewSession];
+}
+
+
+
 // It worked if this code is hit
 - (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didLoginWithSession:(SPTSession *)session {
     //    self.statusLabel.text = @"";
-//    [self showPlayer];
+   [self showPlayer];
 }
 
 - (void)openLoginPage {
@@ -139,7 +148,7 @@
 
                       
                       SPTPartialArtist *artist = [track.artists objectAtIndex:0];
-//                      self.artistLabel.text = artist.name;
+                      self.artistLabel.text = artist.name;
                       
                       NSURL *imageURL = track.album.largestCover.imageURL;
                       if (imageURL == nil) {
@@ -192,21 +201,14 @@
         
         [self updateUI];
         
-        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
-                                                                             accessToken:auth.session.accessToken
-                                                                                   error:nil];
+        NSURLRequest *newRequest = [SPTTrack createRequestForTrack:[NSURL URLWithString:@"spotify:track:3L7BcXHCG8uT92viO6Tikl"] withAccessToken:auth.session.accessToken market:nil error:nil];
         
-        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
-            if (error != nil) {
-                NSLog(@"*** Failed to get playlist %@", error);
-                return;
-            }
-            
-            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
-            
-            [self.player playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
-        }];
+        
+        
+        
+
     }];
+
 }
 
 
@@ -263,7 +265,7 @@
             return;
         }
         
-//        [self showPlayer];
+        [self showPlayer];
     }];
 }
 
@@ -291,7 +293,21 @@
 }
 
 
-    
+-(IBAction)rewind:(id)sender {
+    [self.player skipPrevious:nil];
+}
+
+-(IBAction)playPause:(id)sender {
+    [self.player setIsPlaying:!self.player.isPlaying callback:nil];
+}
+
+-(IBAction)fastForward:(id)sender {
+    [self.player skipNext:nil];
+}
+
+- (void)authenticationViewControllerDidCancelLogin:(SPTAuthViewController *)authenticationViewController {
+    //    self.statusLabel.text = @"Login cancelled.";
+}
     
 - (IBAction)loginClicked:(id)sender {
     [self openLoginPage];

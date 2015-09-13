@@ -24,10 +24,10 @@
 		117ED0EC1BA410FF007D492F /* PlayMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0E91BA410FF007D492F /* PlayMusic.m */; settings = {ASSET_TAGS = (); }; };
 		117ED0ED1BA410FF007D492F /* StartMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0EB1BA410FF007D492F /* StartMusic.m */; settings = {ASSET_TAGS = (); }; };
 		117ED0F31BA42463007D492F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117ED0F21BA42463007D492F /* HealthKit.framework */; };
-		A4659E701BA4E0FE00C10359 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */; };
 		C208C9941BA40F9400C9C6DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */; };
 		C208C9961BA418F600C9C6DE /* images in Resources */ = {isa = PBXBuildFile; fileRef = C208C9951BA418F600C9C6DE /* images */; settings = {ASSET_TAGS = (); }; };
 		C208C9981BA419A000C9C6DE /* cage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C208C9971BA419A000C9C6DE /* cage.jpg */; };
+		C2B0761D1BA51FCC00CC8AB8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B0761C1BA51FCC00CC8AB8 /* HealthKit.framework */; };
 		C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */; };
 		C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDD1BA4074F004804A4 /* Spotify.framework */; };
 		C2FB0EE11BA40A69004804A4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FB0EE01BA40A69004804A4 /* LoginController.m */; settings = {ASSET_TAGS = (); }; };
@@ -122,10 +122,10 @@
 		117ED0F01BA42240007D492F /* TempoWatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TempoWatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		117ED0F11BA42463007D492F /* TempoWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TempoWatch.entitlements; sourceTree = "<group>"; };
 		117ED0F21BA42463007D492F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C208C9951BA418F600C9C6DE /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		C208C9971BA419A000C9C6DE /* cage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cage.jpg; path = images/cage.jpg; sourceTree = "<group>"; };
+		C2B0761C1BA51FCC00CC8AB8 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		C2FB0ED81BA405A6004804A4 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		C2FB0ED91BA4060E004804A4 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../Downloads/ios-sdk-beta-10/Spotify.framework"; sourceTree = "<group>"; };
 		C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -164,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4659E701BA4E0FE00C10359 /* HealthKit.framework in Frameworks */,
+				C2B0761D1BA51FCC00CC8AB8 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +174,7 @@
 		1117242A1BA3F3AC000D4F46 = {
 			isa = PBXGroup;
 			children = (
-				A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */,
+				C2B0761C1BA51FCC00CC8AB8 /* HealthKit.framework */,
 				C208C9971BA419A000C9C6DE /* cage.jpg */,
 				C208C9951BA418F600C9C6DE /* images */,
 				117ED0F21BA42463007D492F /* HealthKit.framework */,
@@ -399,7 +399,7 @@
 					};
 					1117246E1BA3F3AD000D4F46 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = NUZSU8DM6S;
+						DevelopmentTeam = 9WKPZL7H2V;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;

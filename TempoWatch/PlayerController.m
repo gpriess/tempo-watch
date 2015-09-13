@@ -148,7 +148,7 @@
         }
         
         
-        NSURL *trackURI = [NSURL URLWithString:@"spotify:track:58s6EuEYJdlb0kO7awm3Vp"];
+        NSURL *trackURI = [NSURL URLWithString:@"spotify:track:34ONrmvZfttfTZR5NXrC6e"];
         [self.player playURIs:@[ trackURI ] fromIndex:0 callback:^(NSError *error) {
             if (error != nil) {
                 NSLog(@"*** Starting playback got error: %@", error);

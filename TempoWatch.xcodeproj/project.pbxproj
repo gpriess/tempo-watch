@@ -20,14 +20,12 @@
 		111724701BA3F3AD000D4F46 /* TempoWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1117246F1BA3F3AD000D4F46 /* TempoWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		111724791BA3F3AD000D4F46 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */; };
 		1117247B1BA3F3AD000D4F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1117247A1BA3F3AD000D4F46 /* Assets.xcassets */; };
+		11315C361BA5381B00D9CBD1 /* PhoneLiason.m in Sources */ = {isa = PBXBuildFile; fileRef = 11315C351BA5381B00D9CBD1 /* PhoneLiason.m */; settings = {ASSET_TAGS = (); }; };
 		115E532A1BA4F77800E4104A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 115E53291BA4F77800E4104A /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
+		115E532D1BA5136E00E4104A /* WatchLiason.m in Sources */ = {isa = PBXBuildFile; fileRef = 115E532C1BA5136E00E4104A /* WatchLiason.m */; settings = {ASSET_TAGS = (); }; };
 		117ED0EC1BA410FF007D492F /* PlayMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0E91BA410FF007D492F /* PlayMusic.m */; settings = {ASSET_TAGS = (); }; };
 		117ED0ED1BA410FF007D492F /* StartMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0EB1BA410FF007D492F /* StartMusic.m */; settings = {ASSET_TAGS = (); }; };
 		C208C9941BA40F9400C9C6DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */; };
-		C208C9961BA418F600C9C6DE /* images in Resources */ = {isa = PBXBuildFile; fileRef = C208C9951BA418F600C9C6DE /* images */; settings = {ASSET_TAGS = (); }; };
-		C208C9981BA419A000C9C6DE /* cage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C208C9971BA419A000C9C6DE /* cage.jpg */; };
-		C2B0761D1BA51FCC00CC8AB8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B0761C1BA51FCC00CC8AB8 /* HealthKit.framework */; };
-		C2B0761F1BA52D8B00CC8AB8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B0761E1BA52D8B00CC8AB8 /* HealthKit.framework */; };
 		C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */; };
 		C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDD1BA4074F004804A4 /* Spotify.framework */; };
 		C2FB0EE11BA40A69004804A4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FB0EE01BA40A69004804A4 /* LoginController.m */; settings = {ASSET_TAGS = (); }; };
@@ -114,19 +112,19 @@
 		111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		1117247A1BA3F3AD000D4F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1117247C1BA3F3AD000D4F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11315C341BA5381B00D9CBD1 /* PhoneLiason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneLiason.h; sourceTree = "<group>"; };
+		11315C351BA5381B00D9CBD1 /* PhoneLiason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneLiason.m; sourceTree = "<group>"; };
 		115E53291BA4F77800E4104A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		115E532B1BA5136E00E4104A /* WatchLiason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchLiason.h; sourceTree = "<group>"; };
+		115E532C1BA5136E00E4104A /* WatchLiason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchLiason.m; sourceTree = "<group>"; };
 		117ED0E81BA410FF007D492F /* PlayMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayMusic.h; sourceTree = "<group>"; };
 		117ED0E91BA410FF007D492F /* PlayMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMusic.m; sourceTree = "<group>"; };
 		117ED0EA1BA410FF007D492F /* StartMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMusic.h; sourceTree = "<group>"; };
 		117ED0EB1BA410FF007D492F /* StartMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMusic.m; sourceTree = "<group>"; };
 		117ED0F01BA42240007D492F /* TempoWatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TempoWatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		117ED0F11BA42463007D492F /* TempoWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TempoWatch.entitlements; sourceTree = "<group>"; };
-		A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		117ED0F21BA42463007D492F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		C208C9951BA418F600C9C6DE /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
-		C208C9971BA419A000C9C6DE /* cage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cage.jpg; path = images/cage.jpg; sourceTree = "<group>"; };
-		C2B0761C1BA51FCC00CC8AB8 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
-		C2B0761E1BA52D8B00CC8AB8 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		C2FB0ED81BA405A6004804A4 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		C2FB0ED91BA4060E004804A4 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../Downloads/ios-sdk-beta-10/Spotify.framework"; sourceTree = "<group>"; };
 		C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -141,7 +139,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C208C9941BA40F9400C9C6DE /* SystemConfiguration.framework in Frameworks */,
-				C2B0761F1BA52D8B00CC8AB8 /* HealthKit.framework in Frameworks */,
 				C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */,
 				C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */,
 			);
@@ -165,7 +162,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2B0761D1BA51FCC00CC8AB8 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,10 +171,7 @@
 		1117242A1BA3F3AC000D4F46 = {
 			isa = PBXGroup;
 			children = (
-				C2B0761E1BA52D8B00CC8AB8 /* HealthKit.framework */,
-				A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */,
-				C208C9971BA419A000C9C6DE /* cage.jpg */,
-				C208C9951BA418F600C9C6DE /* images */,
+				117ED0F21BA42463007D492F /* HealthKit.framework */,
 				C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */,
 				C2FB0EDD1BA4074F004804A4 /* Spotify.framework */,
 				C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */,
@@ -220,6 +213,8 @@
 				111724441BA3F3AC000D4F46 /* LaunchScreen.storyboard */,
 				111724471BA3F3AC000D4F46 /* Info.plist */,
 				111724361BA3F3AC000D4F46 /* Supporting Files */,
+				115E532B1BA5136E00E4104A /* WatchLiason.h */,
+				115E532C1BA5136E00E4104A /* WatchLiason.m */,
 			);
 			path = TempoWatch;
 			sourceTree = "<group>";
@@ -272,6 +267,8 @@
 				111724771BA3F3AD000D4F46 /* ExtensionDelegate.h */,
 				111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */,
 				1117247C1BA3F3AD000D4F46 /* Info.plist */,
+				11315C341BA5381B00D9CBD1 /* PhoneLiason.h */,
+				11315C351BA5381B00D9CBD1 /* PhoneLiason.m */,
 			);
 			path = "TempoWatch WatchKit Extension";
 			sourceTree = "<group>";
@@ -436,8 +433,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C208C9961BA418F600C9C6DE /* images in Resources */,
-				C208C9981BA419A000C9C6DE /* cage.jpg in Resources */,
 				111724461BA3F3AC000D4F46 /* LaunchScreen.storyboard in Resources */,
 				111724431BA3F3AC000D4F46 /* Assets.xcassets in Resources */,
 				111724411BA3F3AC000D4F46 /* Main.storyboard in Resources */,
@@ -483,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1117243E1BA3F3AC000D4F46 /* PlayerController.m in Sources */,
+				115E532D1BA5136E00E4104A /* WatchLiason.m in Sources */,
 				C2FB0EE11BA40A69004804A4 /* LoginController.m in Sources */,
 				1117243B1BA3F3AC000D4F46 /* AppDelegate.m in Sources */,
 				111724381BA3F3AC000D4F46 /* main.m in Sources */,
@@ -509,6 +505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11315C361BA5381B00D9CBD1 /* PhoneLiason.m in Sources */,
 				111724791BA3F3AD000D4F46 /* ExtensionDelegate.m in Sources */,
 				117ED0ED1BA410FF007D492F /* StartMusic.m in Sources */,
 				117ED0EC1BA410FF007D492F /* PlayMusic.m in Sources */,

@@ -35,7 +35,7 @@
                                 <group width="1" height="22.5" alignment="right" id="kGR-bN-iGW">
                                     <items>
                                         <label width="40.5" height="29.5" alignment="right" alpha="0.0" textAlignment="right" id="JS2-GU-YSI"/>
-                                        <imageView width="23" height="28" alignment="right" alpha="0.0" image="small-heart0" id="kDk-pW-zd0"/>
+                                        <imageView width="23" height="28" alignment="right" alpha="0.0" image="small-heart" id="kDk-pW-zd0"/>
                                     </items>
                                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
@@ -46,8 +46,8 @@
                                                 <action selector="setImage" destination="AgC-eL-Hgc" id="Yhs-Rb-iA6"/>
                                             </connections>
                                         </button>
-                                        <button width="35" height="35" alignment="center" verticalAlignment="center" backgroundImage="red-play.png" id="5R2-q3-8oF"/>
-                                        <button width="30" height="30" alignment="right" verticalAlignment="center" backgroundImage="red-forward.png" id="vw3-yY-4Qi"/>
+                                        <button width="35" height="35" alignment="center" verticalAlignment="center" backgroundImage="red-play" id="5R2-q3-8oF"/>
+                                        <button width="30" height="30" alignment="right" verticalAlignment="center" backgroundImage="red-forward" id="vw3-yY-4Qi"/>
                                     </items>
                                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>

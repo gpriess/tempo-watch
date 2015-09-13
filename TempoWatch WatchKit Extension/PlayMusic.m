@@ -7,6 +7,7 @@
 //
 
 #import "PlayMusic.h"
+#import "PhoneLiason.h"
 @import WatchConnectivity;
 
 @interface PlayMusic () <WCSessionDelegate>
@@ -15,6 +16,8 @@
 @property (strong, nonatomic) HKHealthStore *store;
 @property (strong, nonatomic) HKWorkoutSession *monitorSession;
 @property (strong, nonatomic) HKAnchoredObjectQuery *heartRateQuery;
+
+@property (strong, nonatomic) PhoneLiason *liason;
 
 // UI Elements
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *currentHeartRate;
@@ -37,9 +40,12 @@
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
-    
-    [[WCSession defaultSession] setDelegate:self];
-    [[WCSession defaultSession] activateSession];
+
+    self.liason = [[PhoneLiason alloc] init];
+    [self.liason setAddedMetadata:^(NSString *title, NSString *artist, UIImage *art) {
+        NSLog(@"New data");
+        // Added metadata
+    }];
     
     self.monitorSession = [[HKWorkoutSession alloc] initWithActivityType:HKWorkoutActivityTypeOther locationType:HKWorkoutSessionLocationTypeIndoor];
     self.monitorSession.delegate = self;
@@ -105,9 +111,7 @@
         }
         
         // After getting an NSNumber that is BPM, we use WatchConnectivity to send that to the phone
-        [[WCSession defaultSession] sendMessage:@{@"rate":mostRecentRate} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
-            NSLog(@"HIT ERROR %@",error);
-        }];
+        [blockSafeSelf.liason sendHeartRate:mostRecentRate];
     }];
     
     [self.store executeQuery:self.heartRateQuery];

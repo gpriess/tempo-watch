@@ -8,6 +8,7 @@
 
 #import "Config.h"
 #import "PlayerController.h"
+#import "WatchLiason.h"
 #import <Spotify/SPTDiskCache.h>
 #import <UIKit/UIKit.h>
 @import HealthKit;
@@ -21,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *tempoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
+
+@property (strong, atomic) WatchLiason *liason;
 
 @property (nonatomic, strong) SPTAudioStreamingController *player;
 
@@ -60,16 +63,28 @@
         // Probably want to alert that this won't work without health data
     }
     
-    // Sets up WatchConnectivity to receive updates from the watch with the new heart rate
-    [[WCSession defaultSession] setDelegate:self];
-    [[WCSession defaultSession] activateSession];
+    self.liason = [[WatchLiason alloc] init];
+    [self.liason setReversePressed:^{
+        // Executes when reverse is pressed
+    }];
+    [self.liason setForwardPressed:^{
+        // Executes when forward is pressed
+    }];
+    [self.liason setPlayPausePressed:^{
+        // Executes when play or pause is pressed
+    }];
+    
+    __block PlayerController *safeSelf = self;
+    [self.liason setHeartRateUpdate:^(NSNumber *currentBPM) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            safeSelf.heartRateLabel.text = [NSString stringWithFormat:@"%i",currentBPM.intValue];
+        });
+    }];
     
     self.tempoLabel.text = @"n/a";
     UIImage *cage = [UIImage imageNamed:@"cage"];
     self.coverView.image = [self blurImage:cage blurRadius:20.0];
-    
-    [[WCSession defaultSession] sendMessage:@{@"image":cage} replyHandler:nil errorHandler:nil];
-}
+}   
 
 // Music styles
 // rock, pop, country, metal, alternative, jazz, punk, classical, techno, dubstep

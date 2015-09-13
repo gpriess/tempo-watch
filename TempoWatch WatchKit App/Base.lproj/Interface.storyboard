@@ -10,11 +10,16 @@
             <objects>
                 <controller hidesWhenLoading="NO" id="Bsi-sC-ZQ7" customClass="StartMusic">
                     <items>
-                        <button width="114" height="113.5" alignment="center" verticalAlignment="center" backgroundImage="large-heart" id="RJ0-xa-K3L">
-                            <connections>
-                                <segue destination="AgC-eL-Hgc" kind="push" id="Rji-1Q-E8S"/>
-                            </connections>
-                        </button>
+                        <group width="1" alignment="left" layout="vertical" spacing="0.0" id="r1u-9v-8Cj">
+                            <items>
+                                <button width="67" height="79.5" alignment="center" verticalAlignment="center" backgroundImage="large-heart" id="RJ0-xa-K3L">
+                                    <connections>
+                                        <segue destination="AgC-eL-Hgc" kind="push" id="Rji-1Q-E8S"/>
+                                    </connections>
+                                </button>
+                                <label height="25.5" alignment="center" verticalAlignment="bottom" text="Start Monitoring" textAlignment="left" id="HgH-Eg-ZdU"/>
+                            </items>
+                        </group>
                     </items>
                 </controller>
             </objects>
@@ -25,28 +30,37 @@
             <objects>
                 <controller title="End" id="AgC-eL-Hgc" customClass="PlayMusic">
                     <items>
-                        <group width="136" height="151.5" alignment="left" layout="vertical" spacing="21" id="24D-sX-8eF">
+                        <group width="136" height="151.5" alignment="left" layout="vertical" spacing="15" id="24D-sX-8eF">
                             <items>
                                 <group width="1" height="22.5" alignment="right" id="kGR-bN-iGW">
                                     <items>
-                                        <label width="40.5" height="29.5" alignment="right" text="90" textAlignment="right" id="JS2-GU-YSI"/>
-                                        <imageView width="23" height="28" alignment="right" image="small-heart" id="kDk-pW-zd0"/>
+                                        <label width="40.5" height="29.5" alignment="right" alpha="0.0" textAlignment="right" id="JS2-GU-YSI"/>
+                                        <imageView width="23" height="28" alignment="right" alpha="0.0" image="small-heart0" id="kDk-pW-zd0"/>
                                     </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
-                                <group width="133" height="43.5" alignment="left" id="rU6-TJ-jcw">
+                                <group width="133" height="43.5" alignment="center" id="rU6-TJ-jcw">
                                     <items>
                                         <button width="30" height="30" alignment="left" verticalAlignment="center" backgroundImage="red-rewind" id="YOS-Wp-juJ">
                                             <connections>
                                                 <action selector="setImage" destination="AgC-eL-Hgc" id="Yhs-Rb-iA6"/>
                                             </connections>
                                         </button>
-                                        <imageView width="17" alignment="left" hidden="YES" id="9Ii-9U-pcu"/>
                                         <button width="35" height="35" alignment="center" verticalAlignment="center" backgroundImage="red-play.png" id="5R2-q3-8oF"/>
                                         <button width="30" height="30" alignment="right" verticalAlignment="center" backgroundImage="red-forward.png" id="vw3-yY-4Qi"/>
                                     </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
-                                <label alignment="center" text="Song Info" textAlignment="center" id="CY1-Dq-If9"/>
+                                <group width="1" alignment="center" layout="vertical" spacing="0.0" id="7UT-76-7c8">
+                                    <items>
+                                        <label alignment="center" text="Song Title" textAlignment="center" id="CY1-Dq-If9"/>
+                                        <label alignment="center" text="Artist Name" textAlignment="center" id="Z9m-qc-biC">
+                                            <color key="textColor" red="0.77548926767676774" green="0.77548926767676774" blue="0.77548926767676774" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </items>
+                                </group>
                             </items>
+                            <variation key="device=watch42mm" width="154"/>
                         </group>
                     </items>
                     <menu key="menu" id="k2q-K5-UHO">
@@ -55,11 +69,13 @@
                         </items>
                     </menu>
                     <connections>
-                        <outlet property="backgroundGroup" destination="rU6-TJ-jcw" id="AcQ-RW-7uk"/>
+                        <outlet property="backgroundGroup" destination="24D-sX-8eF" id="U5k-me-ls0"/>
+                        <outlet property="currentHeartRate" destination="JS2-GU-YSI" id="rta-er-Yu8"/>
+                        <outlet property="heartDisplay" destination="kDk-pW-zd0" id="7i1-wM-6Bp"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="396" y="387.25"/>
+            <point key="canvasLocation" x="395.79487179487182" y="386.64102564102569"/>
         </scene>
     </scenes>
 </document>

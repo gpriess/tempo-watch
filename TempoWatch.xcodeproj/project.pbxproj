@@ -17,10 +17,10 @@
 		1117245C1BA3F3AC000D4F46 /* TempoWatchUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117245B1BA3F3AC000D4F46 /* TempoWatchUITests.m */; };
 		111724611BA3F3AC000D4F46 /* TempoWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 111724601BA3F3AC000D4F46 /* TempoWatch WatchKit App.app */; };
 		111724671BA3F3AC000D4F46 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 111724651BA3F3AC000D4F46 /* Interface.storyboard */; };
-		111724691BA3F3AC000D4F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 111724681BA3F3AC000D4F46 /* Assets.xcassets */; };
 		111724701BA3F3AD000D4F46 /* TempoWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1117246F1BA3F3AD000D4F46 /* TempoWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		111724791BA3F3AD000D4F46 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */; };
 		1117247B1BA3F3AD000D4F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1117247A1BA3F3AD000D4F46 /* Assets.xcassets */; };
+		115E532A1BA4F77800E4104A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 115E53291BA4F77800E4104A /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		117ED0EC1BA410FF007D492F /* PlayMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0E91BA410FF007D492F /* PlayMusic.m */; settings = {ASSET_TAGS = (); }; };
 		117ED0ED1BA410FF007D492F /* StartMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0EB1BA410FF007D492F /* StartMusic.m */; settings = {ASSET_TAGS = (); }; };
 		117ED0F31BA42463007D492F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117ED0F21BA42463007D492F /* HealthKit.framework */; };
@@ -108,13 +108,13 @@
 		1117245D1BA3F3AC000D4F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		111724601BA3F3AC000D4F46 /* TempoWatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TempoWatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		111724661BA3F3AC000D4F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		111724681BA3F3AC000D4F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1117246A1BA3F3AC000D4F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1117246F1BA3F3AD000D4F46 /* TempoWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TempoWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		111724771BA3F3AD000D4F46 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
 		111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		1117247A1BA3F3AD000D4F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1117247C1BA3F3AD000D4F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		115E53291BA4F77800E4104A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		117ED0E81BA410FF007D492F /* PlayMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayMusic.h; sourceTree = "<group>"; };
 		117ED0E91BA410FF007D492F /* PlayMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMusic.m; sourceTree = "<group>"; };
 		117ED0EA1BA410FF007D492F /* StartMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMusic.h; sourceTree = "<group>"; };
@@ -175,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				A4659E6F1BA4E0FE00C10359 /* HealthKit.framework */,
-				C208C9991BA4260900C9C6DE /* logo.jpg */,
 				C208C9971BA419A000C9C6DE /* cage.jpg */,
 				C208C9951BA418F600C9C6DE /* images */,
 				117ED0F21BA42463007D492F /* HealthKit.framework */,
@@ -254,8 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				111724651BA3F3AC000D4F46 /* Interface.storyboard */,
-				111724681BA3F3AC000D4F46 /* Assets.xcassets */,
 				1117246A1BA3F3AC000D4F46 /* Info.plist */,
+				115E53291BA4F77800E4104A /* Assets.xcassets */,
 			);
 			path = "TempoWatch WatchKit App";
 			sourceTree = "<group>";
@@ -263,6 +262,7 @@
 		111724731BA3F3AD000D4F46 /* TempoWatch WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1117247A1BA3F3AD000D4F46 /* Assets.xcassets */,
 				117ED0F01BA42240007D492F /* TempoWatch WatchKit Extension.entitlements */,
 				117ED0E81BA410FF007D492F /* PlayMusic.h */,
 				117ED0E91BA410FF007D492F /* PlayMusic.m */,
@@ -270,7 +270,6 @@
 				117ED0EB1BA410FF007D492F /* StartMusic.m */,
 				111724771BA3F3AD000D4F46 /* ExtensionDelegate.h */,
 				111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */,
-				1117247A1BA3F3AD000D4F46 /* Assets.xcassets */,
 				1117247C1BA3F3AD000D4F46 /* Info.plist */,
 			);
 			path = "TempoWatch WatchKit Extension";
@@ -462,8 +461,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				111724691BA3F3AC000D4F46 /* Assets.xcassets in Resources */,
-				117ED0FA1BA4BDF1007D492F /* Assets.xcassets in Resources */,
+				115E532A1BA4F77800E4104A /* Assets.xcassets in Resources */,
 				111724671BA3F3AC000D4F46 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

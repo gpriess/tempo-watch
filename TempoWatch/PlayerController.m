@@ -214,7 +214,8 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
                                   return;
                               }
                               
-                              [self.liason sendMetadataTitle:track.name andArtist:track.artists[0] andArt:image];
+                              NSString *artistName = [[track.artists[0] decodedJSONObject] objectForKey:@"name"];
+                              [self.liason sendMetadataTitle:track.name andArtist:artistName andArt:[self blurImage:image blurRadius:20]];
                               
                           });
                       });
@@ -244,7 +245,7 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
         
         [safeSelf updatePlaylistWithMinTempo:100 maxTempo:140 andDancibility:[NSNumber numberWithDouble:0.5]];
         
-        }];
+    }];
     
 
     

@@ -53,7 +53,7 @@
 {
     NSString *title = message[@"title"];
     NSString *artist = message[@"artist"];
-    UIImage *albumArt = message[@"art"];
+    UIImage *albumArt = [UIImage imageWithData:message[@"art"]];
     
     self.addedMetadata(title,artist,albumArt);
 }

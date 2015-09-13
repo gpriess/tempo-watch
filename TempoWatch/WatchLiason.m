@@ -28,9 +28,19 @@
 
 - (void) sendMetadataTitle:(NSString *)title andArtist:(NSString *)artist andArt:(UIImage *)art
 {
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(150, 150), NO, 0.0);
+    [art drawInRect:CGRectMake(0, 0, 150, 150)];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetBlendMode(context, kCGBlendModeMultiply);
+    CGContextAddRect(context, CGRectMake(50, 50, 100, 100));
+//    CGContextFillPath(context, kCGPathFill);
+//    UIRectFillUsingBlendMode(CGRectMake(0, 0, 150, 150), kCGBlendModeDarken);
+    UIImage *scaledArt = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     NSDictionary *message = @{@"title":title,
                               @"artist":artist,
-                              @"art":art};
+                              @"art":UIImageJPEGRepresentation(scaledArt, 1)};
     
     [[WCSession defaultSession] sendMessage:message replyHandler:nil errorHandler:^(NSError * _Nonnull error)
     {

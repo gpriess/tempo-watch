@@ -17,11 +17,9 @@
 
 @property (atomic, readwrite) SPTAuthViewController *authViewController;
 
+@property (weak, nonatomic) IBOutlet UILabel *heartRateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tempoLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
-@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 
 @property (nonatomic, strong) SPTAudioStreamingController *player;
@@ -239,6 +237,7 @@
 - (void)session:(WCSession *)session didReceiveMessage:(nonnull NSDictionary<NSString *,id> *)message
 {
     NSNumber *currentBPM = message[@"rate"];
+    self.heartRateLabel.text = [NSString stringWithFormat:@"%i",currentBPM.intValue];
     NSLog(@"Current heart rate is %@", currentBPM);
 }
 

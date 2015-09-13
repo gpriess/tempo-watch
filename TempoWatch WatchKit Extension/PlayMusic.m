@@ -12,7 +12,6 @@
 
 @interface PlayMusic () <WCSessionDelegate>
 
-@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *backgroundGroup;
 @property (strong, nonatomic) HKHealthStore *store;
 @property (strong, nonatomic) HKWorkoutSession *monitorSession;
 @property (strong, nonatomic) HKAnchoredObjectQuery *heartRateQuery;
@@ -22,6 +21,12 @@
 // UI Elements
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *currentHeartRate;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceImage *heartDisplay;
+
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *songTitle;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *artistName;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *backgroundGroup;
+
+
 
 @property BOOL hasHeartRate;
 
@@ -42,9 +47,12 @@
     [super willActivate];
 
     self.liason = [[PhoneLiason alloc] init];
+    __block PlayMusic *safeSelf = self;
     [self.liason setAddedMetadata:^(NSString *title, NSString *artist, UIImage *art) {
         NSLog(@"New data");
-        // Added metadata
+        [safeSelf.songTitle setText:title];
+        [safeSelf.artistName setText:artist];
+        [safeSelf.backgroundGroup setBackgroundImage:art];
     }];
     
     self.monitorSession = [[HKWorkoutSession alloc] initWithActivityType:HKWorkoutActivityTypeOther locationType:HKWorkoutSessionLocationTypeIndoor];
@@ -117,13 +125,20 @@
     [self.store executeQuery:self.heartRateQuery];
     
 }
-- (IBAction)setImage {
-    [self.backgroundGroup setBackgroundImageNamed:@"dark-rewind"];
-}
 
 - (void)workoutSession:(HKWorkoutSession *)workoutSession didFailWithError:(NSError *)error
 {
     NSLog(@"Failed");
+}
+
+- (IBAction)rewind {
+    [self.liason pressBackward];
+}
+- (IBAction)playPause {
+    [self.liason pressPlayPause];
+}
+- (IBAction)forward {
+    [self.liason pressForward];
 }
 
 @end

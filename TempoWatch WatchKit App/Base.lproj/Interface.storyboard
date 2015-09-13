@@ -43,15 +43,23 @@
                                     <items>
                                         <button width="30" height="30" alignment="left" verticalAlignment="center" backgroundImage="red-rewind" id="YOS-Wp-juJ">
                                             <connections>
-                                                <action selector="setImage" destination="AgC-eL-Hgc" id="Yhs-Rb-iA6"/>
+                                                <action selector="rewind" destination="AgC-eL-Hgc" id="q87-My-FHu"/>
                                             </connections>
                                         </button>
-                                        <button width="35" height="35" alignment="center" verticalAlignment="center" backgroundImage="red-play" id="5R2-q3-8oF"/>
-                                        <button width="30" height="30" alignment="right" verticalAlignment="center" backgroundImage="red-forward" id="vw3-yY-4Qi"/>
+                                        <button width="35" height="35" alignment="center" verticalAlignment="center" backgroundImage="red-play" id="5R2-q3-8oF">
+                                            <connections>
+                                                <action selector="playPause" destination="AgC-eL-Hgc" id="KF1-bB-gZy"/>
+                                            </connections>
+                                        </button>
+                                        <button width="30" height="30" alignment="right" verticalAlignment="center" backgroundImage="red-forward" id="vw3-yY-4Qi">
+                                            <connections>
+                                                <action selector="forward" destination="AgC-eL-Hgc" id="Tco-L7-i6I"/>
+                                            </connections>
+                                        </button>
                                     </items>
                                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
-                                <group width="1" alignment="center" layout="vertical" spacing="0.0" id="7UT-76-7c8">
+                                <group width="1" height="39" alignment="center" layout="vertical" spacing="0.0" id="7UT-76-7c8">
                                     <items>
                                         <label alignment="center" text="Song Title" textAlignment="center" id="CY1-Dq-If9"/>
                                         <label alignment="center" text="Artist Name" textAlignment="center" id="Z9m-qc-biC">
@@ -69,13 +77,15 @@
                         </items>
                     </menu>
                     <connections>
+                        <outlet property="artistName" destination="Z9m-qc-biC" id="YmE-DD-Trh"/>
                         <outlet property="backgroundGroup" destination="24D-sX-8eF" id="U5k-me-ls0"/>
                         <outlet property="currentHeartRate" destination="JS2-GU-YSI" id="rta-er-Yu8"/>
                         <outlet property="heartDisplay" destination="kDk-pW-zd0" id="7i1-wM-6Bp"/>
+                        <outlet property="songTitle" destination="CY1-Dq-If9" id="S1b-nR-QK7"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="395.79487179487182" y="386.64102564102569"/>
+            <point key="canvasLocation" x="395" y="386.25"/>
         </scene>
     </scenes>
 </document>

@@ -32,13 +32,12 @@
     #endif
     auth.sessionUserDefaultsKey = @kSessionUserDefaultsKey;
     
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"SetupCompleted"] == YES)
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"SetupCompleted"] == NO)
     {
         UIStoryboard *mainStoryboard = self.window.rootViewController.storyboard;
         UIViewController *initialSetupViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"SetupVC"];
         self.window.rootViewController = initialSetupViewController;
         [self.window makeKeyAndVisible];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"SetupCompleted"];
     }
     
     return YES;

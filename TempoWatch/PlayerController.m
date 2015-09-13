@@ -14,9 +14,13 @@
 @import HealthKit;
 @import WatchConnectivity;
 
+const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?api_key=OVKZFPDQEXGKAD634&min_tempo=%i&max_tempo=%i&min_danceability=%d&sort=song_hotttnesss-desc&results=20&bucket=id:spotify&bucket=tracks&limit=true";
+
 @interface PlayerController () <SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, WCSessionDelegate, SPTAuthViewDelegate>
 
 @property (atomic, readwrite) SPTAuthViewController *authViewController;
+
+@property (atomic, strong) NSMutableArray *previousHRSamples;
 
 @property (weak, nonatomic) IBOutlet UILabel *heartRateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tempoLabel;
@@ -48,6 +52,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Initialize queue
+    self.previousHRSamples = [[NSMutableArray alloc] init];
     
     // Requests access to health data on first run of the phone
     if(HKHealthStore.isHealthDataAvailable)
@@ -215,32 +222,7 @@
             return;
         }
         
-        NSURL *bigList = [NSURL URLWithString:@"http://developer.echonest.com/api/v4/song/search?api_key=OVKZFPDQEXGKAD634&min_tempo=140&max_tempo=150&sort=song_hotttnesss-desc&results=20&bucket=id:spotify&bucket=tracks&limit=true"];
         
-        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:bigList];
-        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError)
-        {
-            //data
-            NSDictionary *marksDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            
-            NSArray *songArray = marksDic[@"response"][@"songs"];
-            NSMutableArray *prettySongs = [[NSMutableArray alloc] init];
-            [songArray enumerateObjectsUsingBlock:^(NSDictionary *_Nonnull song, NSUInteger idx, BOOL * _Nonnull stop) {
-                [prettySongs addObject:[NSURL URLWithString:song[@"tracks"][0][@"foreign_id"]]];
-            }];
-            
-            [self.player playURIs:prettySongs fromIndex:0 callback:^(NSError *error) {
-                if (error != nil) {
-                    NSLog(@"*** Starting playback got error: %@", error);
-                    return;
-                }
-                
-                
-                
-            }];
-        }];
-            
         }];
     
 
@@ -280,12 +262,65 @@
     // Dispose of any resources that can be recreated.
 }
 
+//
+
+
+
+
+-(void)updatePlaylistWithMinTempo:(NSUInteger)min maxTempo:(NSUInteger)max andDancibility:(NSNumber*)dancibility
+{
+    
+    
+    NSString *urlString = [NSString stringWithFormat:kBaseURL,min,max,dancibility];
+    NSURL *bigList = [NSURL URLWithString:urlString];
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:bigList];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError)
+     {
+         //data
+         NSDictionary *marksDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+         
+         NSArray *songArray = marksDic[@"response"][@"songs"];
+         NSMutableArray *prettySongs = [[NSMutableArray alloc] init];
+         [songArray enumerateObjectsUsingBlock:^(NSDictionary *_Nonnull song, NSUInteger idx, BOOL * _Nonnull stop) {
+             [prettySongs addObject:[NSURL URLWithString:song[@"tracks"][0][@"foreign_id"]]];
+         }];
+         
+         [self.player playURIs:prettySongs fromIndex:0 callback:^(NSError *error) {
+             if (error != nil) {
+                 NSLog(@"*** Starting playback got error: %@", error);
+                 return;
+             }
+         }];
+     }];
+}
+
+
+
+
 // This is the callback from the watch that receives the heart rate
 - (void)session:(WCSession *)session didReceiveMessage:(nonnull NSDictionary<NSString *,id> *)message
 {
     NSNumber *currentBPM = message[@"rate"];
     self.heartRateLabel.text = [NSString stringWithFormat:@"%i",currentBPM.intValue];
     NSLog(@"Current heart rate is %@", currentBPM);
+    
+    
+    if (self.previousHRSamples.count > 5) {
+        [self.previousHRSamples removeObjectAtIndex:0];
+    }
+    [self.previousHRSamples addObject:currentBPM];
+    
+    int mostRecentHR = [self.previousHRSamples.lastObject intValue];
+    int oldestHR = [self.previousHRSamples[0] intValue];
+    
+    if(abs(oldestHR-mostRecentHR) > 10)
+    {
+        // Update song list with mostRecentHR
+        [self updatePlaylistWithMinTempo:MAX(MIN(oldestHR, mostRecentHR),60) maxTempo:MAX(MAX(oldestHR, mostRecentHR), 70) andDancibility:@0.5];
+    }
+    
 }
 
 

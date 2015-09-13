@@ -106,10 +106,6 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
             [safeSelf updatePlaylistWithMinTempo:MAX(MIN(oldestHR, mostRecentHR),60) maxTempo:MAX(MAX(oldestHR, mostRecentHR), 70) andDancibility:@(MIN(mostRecentHR/200,0.85))];
         }
     }];
-    
-    self.tempoLabel.text = @"n/a";
-    UIImage *cage = [UIImage imageNamed:@"cage"];
-    self.coverView.image = [self blurImage:cage blurRadius:20.0];
 }
 
 - (void) viewDidAppear:(BOOL)animated

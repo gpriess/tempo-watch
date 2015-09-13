@@ -11,20 +11,19 @@
 #import "WatchLiason.h"
 #import <Spotify/SPTDiskCache.h>
 #import <UIKit/UIKit.h>
-@import HealthKit;
 @import WatchConnectivity;
 
 const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?api_key=OVKZFPDQEXGKAD634&min_tempo=%i&max_tempo=%i&min_danceability=%f&sort=song_hotttnesss-desc&results=50&bucket=id:spotify&bucket=tracks&limit=true";
 
-@interface PlayerController () <SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, WCSessionDelegate, SPTAuthViewDelegate>
-
-@property (atomic, readwrite) SPTAuthViewController *authViewController;
+@interface PlayerController () <SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, WCSessionDelegate>
 
 @property (atomic, strong) NSMutableArray *previousHRSamples;
 
 @property (weak, nonatomic) IBOutlet UILabel *heartRateLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *heartImage;
 @property (weak, nonatomic) IBOutlet UILabel *tempoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 
 @property (strong, atomic) WatchLiason *liason;
@@ -57,18 +56,7 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
     self.previousHRSamples = [[NSMutableArray alloc] init];
     
     // Requests access to health data on first run of the phone
-    if(HKHealthStore.isHealthDataAvailable)
-    {
-        HKHealthStore *store = [[HKHealthStore alloc] init];
-        HKQuantityType *heartReate = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
-        [store requestAuthorizationToShareTypes:nil readTypes:[NSSet setWithObjects:heartReate, nil] completion:^(BOOL success, NSError * _Nullable error) {
-            NSLog(@"Hit");
-        }];
-    }
-    else
-    {
-        // Probably want to alert that this won't work without health data
-    }
+
     __block PlayerController *safeSelf = self;
     self.liason = [[WatchLiason alloc] init];
     [self.liason setReversePressed:^{
@@ -86,6 +74,13 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
     
     [self.liason setHeartRateUpdate:^(NSNumber *currentBPM) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            if(self.heartRateLabel.alpha == 0)
+            {
+                [UIView animateWithDuration:1 animations:^{
+                    safeSelf.heartRateLabel.alpha = 1;
+                    safeSelf.heartImage.alpha = 1;
+                }];
+            }
             safeSelf.heartRateLabel.text = [NSString stringWithFormat:@"%i",currentBPM.intValue];
         });
         NSLog(@"Current heart rate is %@", currentBPM);
@@ -108,7 +103,12 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
     self.tempoLabel.text = @"n/a";
     UIImage *cage = [UIImage imageNamed:@"cage"];
     self.coverView.image = [self blurImage:cage blurRadius:20.0];
-}   
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [self showPlayer];
+}
 
 // Music styles
 // rock, pop, country, metal, alternative, jazz, punk, classical, techno, dubstep
@@ -121,26 +121,10 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
     [self handleNewSession];
 }
 
-
-
-// It worked if this code is hit
-- (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didLoginWithSession:(SPTSession *)session {
-    //    self.statusLabel.text = @"";
-   [self showPlayer];
-}
-
 - (void)openLoginPage {
     //    self.statusLabel.text = @"Logging in...";
     
-    self.authViewController = [SPTAuthViewController authenticationViewController];
-    self.authViewController.delegate = self;
-    self.authViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    self.authViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
-    self.modalPresentationStyle = UIModalPresentationCurrentContext;
-    self.definesPresentationContext = YES;
 
-    [self presentViewController:self.authViewController animated:NO completion:nil];
 }
 
 
@@ -321,6 +305,7 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
                  NSLog(@"*** Starting playback got error: %@", error);
                  return;
              }
+             [self playPause:nil];
          }];
      }];
 }
@@ -383,16 +368,13 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
     [self.player skipPrevious:nil];
 }
 
--(IBAction)playPause:(id)sender {
+-(IBAction)playPause:(UIButton *)sender {
+    
     [self.player setIsPlaying:!self.player.isPlaying callback:nil];
 }
 
 -(IBAction)fastForward:(id)sender {
     [self.player skipNext:nil];
-}
-
-- (void)authenticationViewControllerDidCancelLogin:(SPTAuthViewController *)authenticationViewController {
-    //    self.statusLabel.text = @"Login cancelled.";
 }
     
 - (IBAction)loginClicked:(id)sender {

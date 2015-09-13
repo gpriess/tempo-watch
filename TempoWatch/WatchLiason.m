@@ -66,7 +66,9 @@
                               @"artist":artist,
                               @"art":UIImageJPEGRepresentation(filteredImage, 1)};
     
-    [[WCSession defaultSession] sendMessage:message replyHandler:nil errorHandler:^(NSError * _Nonnull error)
+    [[WCSession defaultSession] sendMessage:message replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
+        NSLog(@"Success");
+    } errorHandler:^(NSError * _Nonnull error)
     {
         NSLog(@"Error sending metadata");
     }];

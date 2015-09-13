@@ -21,10 +21,13 @@
 		111724791BA3F3AD000D4F46 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 111724781BA3F3AD000D4F46 /* ExtensionDelegate.m */; };
 		1117247B1BA3F3AD000D4F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1117247A1BA3F3AD000D4F46 /* Assets.xcassets */; };
 		11315C361BA5381B00D9CBD1 /* PhoneLiason.m in Sources */ = {isa = PBXBuildFile; fileRef = 11315C351BA5381B00D9CBD1 /* PhoneLiason.m */; settings = {ASSET_TAGS = (); }; };
+		11315C391BA56A2F00D9CBD1 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11315C381BA56A2F00D9CBD1 /* SetupViewController.m */; settings = {ASSET_TAGS = (); }; };
+		11315C3B1BA56C7800D9CBD1 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11315C3A1BA56C7800D9CBD1 /* HealthKit.framework */; };
 		115E532A1BA4F77800E4104A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 115E53291BA4F77800E4104A /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		115E532D1BA5136E00E4104A /* WatchLiason.m in Sources */ = {isa = PBXBuildFile; fileRef = 115E532C1BA5136E00E4104A /* WatchLiason.m */; settings = {ASSET_TAGS = (); }; };
 		117ED0EC1BA410FF007D492F /* PlayMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0E91BA410FF007D492F /* PlayMusic.m */; settings = {ASSET_TAGS = (); }; };
 		117ED0ED1BA410FF007D492F /* StartMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ED0EB1BA410FF007D492F /* StartMusic.m */; settings = {ASSET_TAGS = (); }; };
+		11FAE7CC1BA56D4000B287E0 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117ED0F21BA42463007D492F /* HealthKit.framework */; };
 		C208C9941BA40F9400C9C6DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */; };
 		C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDB1BA4063A004804A4 /* AVFoundation.framework */; };
 		C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FB0EDD1BA4074F004804A4 /* Spotify.framework */; };
@@ -114,6 +117,9 @@
 		1117247C1BA3F3AD000D4F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11315C341BA5381B00D9CBD1 /* PhoneLiason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneLiason.h; sourceTree = "<group>"; };
 		11315C351BA5381B00D9CBD1 /* PhoneLiason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneLiason.m; sourceTree = "<group>"; };
+		11315C371BA56A2F00D9CBD1 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		11315C381BA56A2F00D9CBD1 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
+		11315C3A1BA56C7800D9CBD1 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		115E53291BA4F77800E4104A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		115E532B1BA5136E00E4104A /* WatchLiason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchLiason.h; sourceTree = "<group>"; };
 		115E532C1BA5136E00E4104A /* WatchLiason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchLiason.m; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C208C9941BA40F9400C9C6DE /* SystemConfiguration.framework in Frameworks */,
+				11FAE7CC1BA56D4000B287E0 /* HealthKit.framework in Frameworks */,
 				C2FB0EDC1BA4063A004804A4 /* AVFoundation.framework in Frameworks */,
 				C2FB0EDE1BA4074F004804A4 /* Spotify.framework in Frameworks */,
 			);
@@ -162,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11315C3B1BA56C7800D9CBD1 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +179,7 @@
 		1117242A1BA3F3AC000D4F46 = {
 			isa = PBXGroup;
 			children = (
+				11315C3A1BA56C7800D9CBD1 /* HealthKit.framework */,
 				117ED0F21BA42463007D492F /* HealthKit.framework */,
 				C208C9931BA40F9400C9C6DE /* SystemConfiguration.framework */,
 				C2FB0EDD1BA4074F004804A4 /* Spotify.framework */,
@@ -215,6 +224,8 @@
 				111724361BA3F3AC000D4F46 /* Supporting Files */,
 				115E532B1BA5136E00E4104A /* WatchLiason.h */,
 				115E532C1BA5136E00E4104A /* WatchLiason.m */,
+				11315C371BA56A2F00D9CBD1 /* SetupViewController.h */,
+				11315C381BA56A2F00D9CBD1 /* SetupViewController.m */,
 			);
 			path = TempoWatch;
 			sourceTree = "<group>";
@@ -378,6 +389,9 @@
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = NUZSU8DM6S;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.HealthKit = {
 								enabled = 1;
 							};
@@ -481,6 +495,7 @@
 				115E532D1BA5136E00E4104A /* WatchLiason.m in Sources */,
 				C2FB0EE11BA40A69004804A4 /* LoginController.m in Sources */,
 				1117243B1BA3F3AC000D4F46 /* AppDelegate.m in Sources */,
+				11315C391BA56A2F00D9CBD1 /* SetupViewController.m in Sources */,
 				111724381BA3F3AC000D4F46 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,7 +597,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mark Linington (768L5PR4J7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mark Linington (768L5PR4J7)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -604,6 +620,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "46693c38-a3db-4e4d-84ae-d828d3303183";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -626,7 +643,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mark Linington (768L5PR4J7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mark Linington (768L5PR4J7)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -641,6 +659,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "46693c38-a3db-4e4d-84ae-d828d3303183";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -651,8 +670,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "TempoWatch WatchKit Extension/TempoWatch WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mark Linington (768L5PR4J7)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Mark Linington (768L5PR4J7)";
 				INFOPLIST_FILE = "TempoWatch WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch.watchkitapp.watchkitextension;
@@ -669,8 +688,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "TempoWatch WatchKit Extension/TempoWatch WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mark Linington (768L5PR4J7)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Mark Linington (768L5PR4J7)";
 				INFOPLIST_FILE = "TempoWatch WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch.watchkitapp.watchkitextension;
@@ -687,7 +706,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mark Linington (768L5PR4J7)";
 				IBSC_MODULE = TempoWatch_WatchKit_Extension;
 				INFOPLIST_FILE = "TempoWatch WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch.watchkitapp;
@@ -704,7 +723,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mark Linington (768L5PR4J7)";
 				IBSC_MODULE = TempoWatch_WatchKit_Extension;
 				INFOPLIST_FILE = "TempoWatch WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch.watchkitapp;
@@ -722,8 +741,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TempoWatch/TempoWatch.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mark Linington (768L5PR4J7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mark Linington (768L5PR4J7)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -734,7 +753,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "46693c38-a3db-4e4d-84ae-d828d3303183";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -744,8 +763,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TempoWatch/TempoWatch.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mark Linington (768L5PR4J7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mark Linington (768L5PR4J7)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -756,7 +775,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklinington.TempoWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "46693c38-a3db-4e4d-84ae-d828d3303183";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

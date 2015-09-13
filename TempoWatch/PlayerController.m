@@ -14,7 +14,7 @@
 @import HealthKit;
 @import WatchConnectivity;
 
-const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?api_key=OVKZFPDQEXGKAD634&min_tempo=%i&max_tempo=%i&min_danceability=%f&sort=song_hotttnesss-desc&results=25&bucket=id:spotify&bucket=tracks&limit=true";
+const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?api_key=OVKZFPDQEXGKAD634&min_tempo=%i&max_tempo=%i&min_danceability=%f&sort=song_hotttnesss-desc&results=50&bucket=id:spotify&bucket=tracks&limit=true";
 
 @interface PlayerController () <SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, WCSessionDelegate, SPTAuthViewDelegate>
 
@@ -82,6 +82,7 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
     [self.liason setPlayPausePressed:^{
         // Executes when play or pause is pressed
         [safeSelf.player setIsPlaying:!safeSelf.player.isPlaying callback:nil];
+        [safeSelf.player.pla]
     }];
     
     [self.liason setHeartRateUpdate:^(NSNumber *currentBPM) {

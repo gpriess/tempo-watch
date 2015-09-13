@@ -25,7 +25,9 @@
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *songTitle;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *artistName;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *backgroundGroup;
+@property (unsafe_unretained) IBOutlet WKInterfaceButton *playPauseButton;
 
+@property BOOL pauseOn;
 
 
 @property BOOL hasHeartRate;
@@ -136,6 +138,14 @@
 }
 - (IBAction)playPause {
     [self.liason pressPlayPause];
+    if (self.pauseOn) {
+        self.pauseOn = false;
+        [self.playPauseButton setBackgroundImageNamed:@"red-play"];
+    } else {
+        self.pauseOn = true;
+        [self.playPauseButton setBackgroundImageNamed:@"red-pause"];
+    }
+    
 }
 - (IBAction)forward {
     [self.liason pressForward];

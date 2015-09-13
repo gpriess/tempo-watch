@@ -140,10 +140,10 @@
     [self.liason pressPlayPause];
     if (self.pauseOn) {
         self.pauseOn = false;
-        [self.playPauseButton setBackgroundImageNamed:@"red-play"];
+        [self.playPauseButton setBackgroundImageNamed:@"red-pause"];
     } else {
         self.pauseOn = true;
-        [self.playPauseButton setBackgroundImageNamed:@"red-pause"];
+        [self.playPauseButton setBackgroundImageNamed:@"red-play"];
     }
     
 }

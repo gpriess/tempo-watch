@@ -82,7 +82,6 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
     [self.liason setPlayPausePressed:^{
         // Executes when play or pause is pressed
         [safeSelf.player setIsPlaying:!safeSelf.player.isPlaying callback:nil];
-        [safeSelf.player.pla]
     }];
     
     [self.liason setHeartRateUpdate:^(NSNumber *currentBPM) {

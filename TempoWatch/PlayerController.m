@@ -86,6 +86,21 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
         dispatch_async(dispatch_get_main_queue(), ^{
             safeSelf.heartRateLabel.text = [NSString stringWithFormat:@"%i",currentBPM.intValue];
         });
+        NSLog(@"Current heart rate is %@", currentBPM);
+        
+        if (safeSelf.previousHRSamples.count > 5) {
+            [safeSelf.previousHRSamples removeObjectAtIndex:0];
+        }
+        [safeSelf.previousHRSamples addObject:currentBPM];
+        
+        int mostRecentHR = [safeSelf.previousHRSamples.lastObject intValue];
+        int oldestHR = [safeSelf.previousHRSamples[0] intValue];
+        
+        if(abs(oldestHR-mostRecentHR) > 10)
+        {
+            // Update song list with mostRecentHR
+            [safeSelf updatePlaylistWithMinTempo:MAX(MIN(oldestHR, mostRecentHR),60) maxTempo:MAX(MAX(oldestHR, mostRecentHR), 70) andDancibility:@0.5];
+        }
     }];
     
     self.tempoLabel.text = @"n/a";
@@ -198,6 +213,9 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
                                   NSLog(@"Couldn't load cover image with error: %@", error);
                                   return;
                               }
+                              
+                              [self.liason sendMetadataTitle:track.name andArtist:track.artists[0] andArt:image];
+                              
                           });
                       });
                       
@@ -302,24 +320,7 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
 // This is the callback from the watch that receives the heart rate
 - (void)session:(WCSession *)session didReceiveMessage:(nonnull NSDictionary<NSString *,id> *)message
 {
-    NSNumber *currentBPM = message[@"rate"];
-    self.heartRateLabel.text = [NSString stringWithFormat:@"%i",currentBPM.intValue];
-    NSLog(@"Current heart rate is %@", currentBPM);
-    
-    
-    if (self.previousHRSamples.count > 5) {
-        [self.previousHRSamples removeObjectAtIndex:0];
-    }
-    [self.previousHRSamples addObject:currentBPM];
-    
-    int mostRecentHR = [self.previousHRSamples.lastObject intValue];
-    int oldestHR = [self.previousHRSamples[0] intValue];
-    
-    if(abs(oldestHR-mostRecentHR) > 10)
-    {
-        // Update song list with mostRecentHR
-        [self updatePlaylistWithMinTempo:MAX(MIN(oldestHR, mostRecentHR),60) maxTempo:MAX(MAX(oldestHR, mostRecentHR), 70) andDancibility:@0.5];
-    }
+
     
 }
 

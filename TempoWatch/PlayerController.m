@@ -308,6 +308,7 @@ const NSString *kBaseURL = @"http://developer.echonest.com/api/v4/song/search?ap
              [prettySongs addObject:[NSURL URLWithString:song[@"tracks"][0][@"foreign_id"]]];
          }];
          
+         // Shuffle algorithm
          for (int x = 0; x < [prettySongs count]; x++) {
              int randInt = (arc4random() % ([prettySongs count] - x)) + x;
              [prettySongs exchangeObjectAtIndex:x withObjectAtIndex:randInt];

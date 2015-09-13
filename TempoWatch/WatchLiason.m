@@ -28,19 +28,43 @@
 
 - (void) sendMetadataTitle:(NSString *)title andArtist:(NSString *)artist andArt:(UIImage *)art
 {
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(150, 150), NO, 0.0);
-    [art drawInRect:CGRectMake(0, 0, 150, 150)];
+
+    
+    UIGraphicsBeginImageContextWithOptions(art.size, NO, art.scale);
+    
     CGContextRef context = UIGraphicsGetCurrentContext();
+    CGRect area = CGRectMake(0, 0, art.size.width, art.size.height);
+    
+    CGContextScaleCTM(context, 1, -1);
+    CGContextTranslateCTM(context, 0, -area.size.height);
+    
+    CGContextSaveGState(context);
+    CGContextClipToMask(context, area, art.CGImage);
+    
+    UIColor *mycolor = [UIColor colorWithRed:24/255.0f green:89/255.0f blue:36/255.0f alpha:0.9];
+    
+    [mycolor set];
+    
+    CGContextFillRect(context, area);
+    
+    CGContextRestoreGState(context);
+    
     CGContextSetBlendMode(context, kCGBlendModeMultiply);
-    CGContextAddRect(context, CGRectMake(50, 50, 100, 100));
-//    CGContextFillPath(context, kCGPathFill);
-//    UIRectFillUsingBlendMode(CGRectMake(0, 0, 150, 150), kCGBlendModeDarken);
-    UIImage *scaledArt = UIGraphicsGetImageFromCurrentImageContext();
+    
+    CGContextDrawImage(context, area, art.CGImage);
+    
+    UIImage *filteredImage = UIGraphicsGetImageFromCurrentImageContext();
+    
     UIGraphicsEndImageContext();
+    
+    
+    
+    
+
     
     NSDictionary *message = @{@"title":title,
                               @"artist":artist,
-                              @"art":UIImageJPEGRepresentation(scaledArt, 1)};
+                              @"art":UIImageJPEGRepresentation(filteredImage, 1)};
     
     [[WCSession defaultSession] sendMessage:message replyHandler:nil errorHandler:^(NSError * _Nonnull error)
     {
